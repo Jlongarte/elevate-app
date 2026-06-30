@@ -1,0 +1,130 @@
+.navbar {
+  width: 100%;
+  height: 70px;
+  background-color: var(--bg-main);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.navbar-logo a {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.navbar-logo span {
+  color: var(--color-secondary);
+}
+
+/* ENLACES */
+.navbar-links {
+  display: flex;
+  gap: var(--spacing-lg);
+  list-style: none;
+}
+
+.navbar-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-main);
+  transition: var(--transition);
+  padding: var(--spacing-xs) 0;
+}
+
+.navbar-links a:hover {
+  color: var(--color-secondary);
+}
+
+.navbar-links .admin-link {
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+/* ACCIONES (DERECHA) */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.login-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  border: 1px solid var(--color-primary);
+  padding: 8px 16px;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition);
+}
+
+.login-link:hover {
+  background-color: var(--color-primary);
+  color: var(--bg-main);
+}
+
+.user-greeting {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.btn-logout {
+  background: none;
+  border: none;
+  color: var(--color-error);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ICONO CARRITO */
+.cart-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--color-primary);
+  transition: var(--transition);
+}
+
+.cart-icon-container:hover {
+  color: var(--color-secondary);
+}
+
+.cart-svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: var(--color-secondary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

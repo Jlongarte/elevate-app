@@ -1,0 +1,149 @@
+.home-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.section-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.see-all-link {
+  color: var(--text-muted);
+  text-decoration: underline;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.see-all-link:hover {
+  color: var(--color-secondary);
+}
+
+/* ==========================================
+   1. HERO BANNER 
+   ========================================== */
+.hero-section {
+  width: 100%;
+  height: 70vh;
+  background-color: var(--bg-surface);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-image 0.8s ease-in-out;
+  
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  z-index: 2; 
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.hero-buttons {
+  margin-top: var(--spacing-lg);
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+/* Indicadores del carrusel  */
+.hero-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.indicator.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+/* ==========================================
+   2. CATEGORIES GRID
+   ========================================== */
+.categories-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  padding: 0 var(--spacing-lg);
+}
+
+.category-card {
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--spacing-xl);
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&q=80');
+}
+
+.category-overlay {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+/* ==========================================
+   4. NUTRITION BANNER
+   ========================================== */
+.nutrition-banner-section {
+  padding: 0 var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.nutrition-banner {
+  background-color: #222; 
+  padding: var(--spacing-xl);
+  height: 350px;
+  display: flex;
+  align-items: center;
+  color: white;
+  border-radius: var(--border-radius-md);
+}
+
+.nutrition-content {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
