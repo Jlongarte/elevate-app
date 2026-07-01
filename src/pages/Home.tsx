@@ -20,7 +20,7 @@ const dummyProducts: Product[] = [
     name: 'Malla Deportiva Compresión', 
     description: '', 
     price: 39.99, 
-    category: 'Pants', 
+    category: 'Leggins', 
     size: 'M', 
     stock: 10, 
     imageUrl: 'https://images.unsplash.com/photo-1539185441755-769473a23570?w=500&q=80' 

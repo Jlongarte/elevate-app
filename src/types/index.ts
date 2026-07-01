@@ -4,7 +4,7 @@ export interface Product {
   name: string;
   description: string;
   price: number;
-  category: 'Shoes' | 'T-Shirts' | 'Pants' | 'Jackets' | 'Accessories';
+  category: 'Shoes' | 'T-Shirts' | 'Leggins' | 'Jackets' | 'Accessories';
   size: 'S' | 'M' | 'L' | 'XL';
   stock: number;
   imageUrl: string;

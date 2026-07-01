@@ -16,7 +16,7 @@ const ProductDetail: React.FC = () => {
     name: 'Malla Deportiva Compresión Pro',
     description: 'Diseñada para entrenamientos de alta intensidad. Esta malla cuenta con tecnología de evaporación rápida del sudor, paneles de ventilación estratégica en zonas de calor y un ajuste de compresión muscular que reduce la fatiga durante tus sesiones más exigentes.',
     price: 39.99,
-    category: 'Pants',
+    category: 'Leggins',
     size: 'M', // Talla por defecto en base de datos, pero ofreceremos selector
     stock: 10,
     imageUrl: 'https://images.unsplash.com/photo-1539185441755-769473a23570?w=800&q=80'
