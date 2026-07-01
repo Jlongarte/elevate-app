@@ -128,6 +128,7 @@
 .nutrition-banner-section {
   padding: 0 var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
+  
 }
 
 .nutrition-banner {
@@ -138,9 +139,41 @@
   align-items: center;
   color: white;
   border-radius: var(--border-radius-md);
+  background-image: url("/public/banner2.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .nutrition-content {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+
+.sport-banner-section {
+  padding: 0 var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  
+}
+
+.sport-banner {
+  background-color: #222; 
+  padding: var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  color: white;
+  border-radius: var(--border-radius-md);
+  background-image: url("/public/banner2.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70vh;
+}
+
+.sport-content {
   max-width: 500px;
   display: flex;
   flex-direction: column;

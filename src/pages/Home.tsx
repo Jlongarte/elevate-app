@@ -44,6 +44,16 @@ const dummyProducts: Product[] = [
     size: 'XL', 
     stock: 3, 
     imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80' 
+  },
+  { 
+    _id: '4', 
+    name: 'Zapatillas Running Pro', 
+    description: '', 
+    price: 89.99, 
+    category: 'Shoes', 
+    size: 'XL', 
+    stock: 3, 
+    imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80' 
   }
 ];
 
@@ -133,7 +143,24 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
+          {/* 3. FEATURED PRODUCTS  */}
+      <section className="featured-section">
+        <div className="section-header">
+          <h2>New releases</h2>
+          <a href="/catalog" className="see-all-link">Ver todo</a>
+        </div>
+        <ProductGrid products={dummyProducts} />
+      </section>
+       {/* 5. NUTRITION BANNER */}
+      <section className="sport-banner-section">
+        <div className="sport-banner">
+          <div className="sport-content">
+            <h2>SUPLEMENTACIÓN PREMIUM</h2>
+            <p>Maximiza tu recuperación y energía.</p>
+            <Button variant="primary">VER SUPLEMENTOS</Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
