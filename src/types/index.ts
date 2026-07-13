@@ -4,12 +4,13 @@ export interface Product {
   name: string;
   description: string;
   price: number;
-  category: 'Shoes' | 'T-Shirts' | 'Leggins' | 'Jackets' | 'Accessories';
-  size: 'S' | 'M' | 'L' | 'XL';
-  stock: number;
-  imageUrl: string;
-  createdAt?: string;
-  updatedAt?: string;
+  images: string[]; 
+  category: string;
+  sizes: string[];  
+  colors?: string[];
+  lengths?: string[];
+  specs?: string[];
+  countInStock: number; 
 }
 
 // Interfaz para la Dirección de Envío

@@ -1,166 +1,49 @@
-import React, { useState, useEffect } from 'react'; // Importamos hooks
-import Button from '../components/Common/Button/Button';
-import ProductGrid from '../components/Product/ProductGrid/ProductGrid';
-import { type Product } from '../types';
+import React from 'react';
+import { useHomeProducts } from '../hooks/useHomeProducts';
+import { HomeProductRow } from '../components/Home/HomeProductRow';
+import { HomeCarousel } from '../components/Home/HomeCarousel';
+import { HomeBanner } from '../components/Home/HomeBanner';
 import './Home.css';
 
-
-const heroImages = [
-  '/hero-image1.webp',
-  '/hero-image2.webp',
-  '/hero-image3.webp'
-];
-
-
-// Simulamos unos productos provisionales que cumplan la interfaz
-
-const dummyProducts: Product[] = [
-  { 
-    _id: '1', 
-    name: 'Malla Deportiva Compresión', 
-    description: '', 
-    price: 39.99, 
-    category: 'Leggins', 
-    size: 'M', 
-    stock: 10, 
-    imageUrl: 'https://images.unsplash.com/photo-1539185441755-769473a23570?w=500&q=80' 
-  },
-  { 
-    _id: '2', 
-    name: 'Sujetador Impacto Alto', 
-    description: '', 
-    price: 29.99, 
-    category: 'T-Shirts', 
-    size: 'S', 
-    stock: 5, 
-    imageUrl: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=500&q=80' 
-  },
-  { 
-    _id: '3', 
-    name: 'Zapatillas Running Pro', 
-    description: '', 
-    price: 89.99, 
-    category: 'Shoes', 
-    size: 'XL', 
-    stock: 3, 
-    imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80' 
-  },
-  { 
-    _id: '4', 
-    name: 'Zapatillas Running Pro', 
-    description: '', 
-    price: 89.99, 
-    category: 'Shoes', 
-    size: 'XL', 
-    stock: 3, 
-    imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80' 
-  }
-];
-
 const Home: React.FC = () => {
-  // --- LÓGICA DEL CAROUSEL ---
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    // Cambia la imagen automáticamente cada 5 segundos
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
-
-    
-    return () => clearInterval(timer);
-  }, []);
+  // 📡 Petición HTTP limpia a Render para las filas dinámicas
+  const { mostWanted, newReleases, isLoading, error } = useHomeProducts();
 
   return (
     <div className="home-container">
-      
-      {/* 1. HERO BANNER DIPNÁMICO */}
-      <section 
-        className="hero-section"
-        style={{ 
+      {/* Carrusel superior con las 3 fotos */}
+      <HomeCarousel />
+
+      {isLoading && <div className="home-status-msg">Loading collection...</div>}
+      {error && <div className="home-status-msg error">{error}</div>}
+
+      {!isLoading && !error && (
+        <div className="home-content-layout">
           
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(${heroImages[currentImageIndex]})` 
-        }}
-      >
-        <div className="hero-content">
-          <h1>ELEVATE YOUR GAME</h1>
-          <p>Descubre la nueva colección de alto rendimiento.</p>
-          <div className="hero-buttons">
-            <Button variant="primary">COMPRAR MUJER</Button>
-            <Button variant="secondary">COMPRAR HOMBRE</Button>
-          </div>
-        </div>
-        
-        
-        <div className="hero-indicators">
-          {heroImages.map((_, index) => (
-            <span 
-              key={index} 
-              className={`indicator ${index === currentImageIndex ? 'active' : ''}`}
-              onClick={() => setCurrentImageIndex(index)} // Permitir cambio manual
-            />
-          ))}
-        </div>
-      </section>
+          {/* Fila 1: Most Wanted (4 productos de la API) */}
+          <HomeProductRow 
+            title="MOST WANTED" 
+            subtitle="The absolute community favorites."
+            products={mostWanted} 
+          />
 
-      {/* 2. CATEGORIES GRID */}
-      <section className="categories-section">
-        <h2 className="section-title">Tendencias de Temporada</h2>
-        <div className="categories-grid">
-          <div className="category-card">
-            <div className="category-overlay">
-              <h3>SUMMER BRIGHTS</h3>
-              <Button variant="light">VER AHORA</Button>
-            </div>
-          </div>
-          <div className="category-card">
-            <div className="category-overlay">
-              <h3>TRAINING GEAR</h3>
-              <Button variant="light">DESCUBRIR</Button>
-            </div>
-          </div>
-        </div>
-      </section>
+          {/* Banner Intermedio de Ancho Completo Centrado (Ejemplo: tu Summer Edit) */}
+          <HomeBanner 
+            title="SUMMER EDIT"
+            ctaText="Discover now"
+            imageUrl="https://res.cloudinary.com/dzo0dufcr/image/upload/v1783757704/rachel_3_yoxpzi.jpg" // Puedes sustituir por tu imagen real
+            linkTo="/catalog"
+          />
 
-      {/* 3. FEATURED PRODUCTS  */}
-      <section className="featured-section">
-        <div className="section-header">
-          <h2>Los más buscados</h2>
-          <a href="/catalog" className="see-all-link">Ver todo</a>
-        </div>
-        <ProductGrid products={dummyProducts} />
-      </section>
+          {/* Fila 2: New Releases (4 productos de la API) */}
+          <HomeProductRow 
+            title="NEW RELEASES" 
+            subtitle="Fresh drops from our engineering lab."
+            products={newReleases} 
+          />
 
-      {/* 4. NUTRITION BANNER */}
-      <section className="nutrition-banner-section">
-        <div className="nutrition-banner">
-          <div className="nutrition-content">
-            <h2>SUPLEMENTACIÓN PREMIUM</h2>
-            <p>Maximiza tu recuperación y energía.</p>
-            <Button variant="primary">VER SUPLEMENTOS</Button>
-          </div>
         </div>
-      </section>
-          {/* 3. FEATURED PRODUCTS  */}
-      <section className="featured-section">
-        <div className="section-header">
-          <h2>New releases</h2>
-          <a href="/catalog" className="see-all-link">Ver todo</a>
-        </div>
-        <ProductGrid products={dummyProducts} />
-      </section>
-       {/* 5. NUTRITION BANNER */}
-      <section className="sport-banner-section">
-        <div className="sport-banner">
-          <div className="sport-content">
-            <h2>SUPLEMENTACIÓN PREMIUM</h2>
-            <p>Maximiza tu recuperación y energía.</p>
-            <Button variant="primary">VER SUPLEMENTOS</Button>
-          </div>
-        </div>
-      </section>
+      )}
     </div>
   );
 };

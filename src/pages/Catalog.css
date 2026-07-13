@@ -1,0 +1,176 @@
+/* ==========================================================================
+   🛍️ PACIFIC ATHLEISURE - CATALOG GLOBAL STYLES
+   ========================================================================== */
+
+.catalog-page-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  min-height: 80vh;
+}
+
+.catalog-header {
+  margin-bottom: 30px;
+}
+
+.catalog-header h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin: 0 0 6px 0;
+  color: #000;
+}
+
+.catalog-header p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+/* ==========================================================================
+   🎛️ TOOLBAR DE FILTROS (CatalogFilters.tsx)
+   ========================================================================== */
+.catalog-filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 16px 0;
+  margin-bottom: 40px;
+}
+
+/* Buscador de texto input */
+.filter-search-box input {
+  height: 40px;
+  border: 1px solid #e5e5e5;
+  padding: 0 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-width: 240px;
+  outline: none;
+  background-color: transparent;
+  color: #000;
+}
+
+.filter-search-box input:focus {
+  border-color: #000;
+}
+
+/* Fila de botones de categorías */
+.filter-categories-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-category-btn {
+  background: none;
+  border: 1px solid transparent;
+  padding: 8px 18px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  color: #767676;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.filter-category-btn:hover {
+  color: #000;
+}
+
+.filter-category-btn.active {
+  border-color: #000;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Dropdown Select de Ordenación */
+.filter-sort-box select {
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #e5e5e5;
+  background-color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  color: #000;
+}
+
+.filter-sort-box select:focus {
+  border-color: #000;
+}
+
+/* ==========================================================================
+   🚀 REJILLA DE PRODUCTOS REUTILIZABLE (products-grid)
+   ========================================================================== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+/* Mensajes de Estado y Fallbacks */
+.catalog-status-msg {
+  text-align: center;
+  padding: 80px;
+  color: #767676;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.catalog-status-msg.error {
+  color: #a30000;
+}
+
+.catalog-no-results {
+  text-align: center;
+  padding: 100px 20px;
+  color: #666;
+  width: 100%;
+}
+
+.catalog-no-results h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   📱 RESPONSIVE DESIGN (Media Queries)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-filters-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filter-search-box input, 
+  .filter-sort-box select {
+    width: 100%;
+  }
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}

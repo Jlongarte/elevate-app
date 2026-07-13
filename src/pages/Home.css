@@ -1,182 +1,265 @@
 .home-container {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xl);
 }
 
-.section-title {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 1.8rem;
-  letter-spacing: 1px;
-  margin-bottom: var(--spacing-lg);
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 var(--spacing-lg);
-  margin-bottom: var(--spacing-md);
-}
-
-.see-all-link {
-  color: var(--text-muted);
-  text-decoration: underline;
-  font-size: 0.9rem;
-  transition: var(--transition);
-}
-
-.see-all-link:hover {
-  color: var(--color-secondary);
-}
-
-/* ==========================================
-   1. HERO BANNER 
-   ========================================== */
-.hero-section {
+/* Hero Banner */
+.home-hero {
+  position: relative;
   width: 100%;
-  height: 70vh;
-  background-color: var(--bg-surface);
+  height: 80vh;
+  background-image: url('https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=1600&q=80');
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  transition: background-image 0.8s ease-in-out;
-  
+  padding: 0 var(--spacing-lg);
+  margin-bottom: 60px;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
 }
 
 .hero-content {
-  text-align: center;
-  color: white;
-  z-index: 2; 
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  color: #fff;
 }
 
-.hero-content h1 {
-  font-size: 3rem;
+.hero-tagline {
+  font-size: 0.85rem;
+  font-weight: 700;
   letter-spacing: 2px;
-  margin-bottom: var(--spacing-sm);
+  color: #dcdcdc;
+  display: block;
+  margin-bottom: 12px;
 }
 
-.hero-buttons {
-  margin-top: var(--spacing-lg);
+.hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin: 0 0 16px 0;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f3f3f3;
+  margin-bottom: 30px;
+}
+
+.hero-cta-btn {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 16px 36px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.hero-cta-btn:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+/* Distribución de Filas */
+.home-content-layout {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
-  gap: var(--spacing-md);
-  justify-content: center;
+  flex-direction: column;
+  gap: 80px;
+  margin-bottom: 100px;
 }
 
-/* Indicadores del carrusel  */
-.hero-indicators {
+.home-products-section {
+  width: 100%;
+}
+
+.home-section-header {
+  margin-bottom: 30px;
+}
+
+.home-section-header h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #000;
+  margin: 0 0 6px 0;
+}
+
+.home-section-subtitle {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+.home-status-msg {
+  text-align: center;
+  padding: 60px;
+  font-size: 1.1rem;
+  color: #767676;
+}
+
+.home-container {
+  width: 100%;
+}
+
+/* ==========================================================================
+   🎠 CARROUSEL PRINCIPAL (HERO)
+   ========================================================================== */
+.home-carousel {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+
+.carousel-slide {
   position: absolute;
-  bottom: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+  z-index: 1;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 650px;
+  color: #fff;
+}
+
+.hero-tagline {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #e5e5e5;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin: 0 0 16px 0;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f3f3f3;
+  margin-bottom: 30px;
+}
+
+.hero-cta-btn {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 16px 36px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.hero-cta-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
-  z-index: 2;
+  z-index: 4;
 }
 
-.indicator {
-  width: 12px;
-  height: 12px;
+.carousel-dots .dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
   cursor: pointer;
-  transition: var(--transition);
+  padding: 0;
+  transition: background 0.2s;
 }
 
-.indicator.active {
-  background-color: white;
-  transform: scale(1.2);
+.carousel-dots .dot.active {
+  background: #fff;
+  width: 24px;
+  border-radius: 4px;
 }
 
-/* ==========================================
-   2. CATEGORIES GRID
-   ========================================== */
-.categories-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-md);
-  padding: 0 var(--spacing-lg);
-}
 
-.category-card {
-  height: 450px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  padding: var(--spacing-xl);
-  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&q=80');
-}
-
-.category-overlay {
-  color: white;
+/* Layout General */
+.home-content-layout {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
-  align-items: flex-start;
+  gap: 60px;
+  margin-bottom: 100px;
 }
 
-/* ==========================================
-   4. NUTRITION BANNER
-   ========================================== */
-.nutrition-banner-section {
-  padding: 0 var(--spacing-lg);
-  margin-bottom: var(--spacing-xl);
-  
+.home-status-msg {
+  text-align: center;
+  padding: 60px;
+  color: #767676;
 }
 
-.nutrition-banner {
-  background-color: #222; 
-  padding: var(--spacing-xl);
-  height: 350px;
-  display: flex;
-  align-items: center;
-  color: white;
-  border-radius: var(--border-radius-md);
-  background-image: url("/public/banner2.jpeg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.nutrition-content {
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--spacing-md);
-}
-
-.sport-banner-section {
-  padding: 0 var(--spacing-lg);
-  margin-bottom: var(--spacing-xl);
-  
-}
-
-.sport-banner {
-  background-color: #222; 
-  padding: var(--spacing-xl);
-  display: flex;
-  align-items: center;
-  color: white;
-  border-radius: var(--border-radius-md);
-  background-image: url("/public/banner2.jpeg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 70vh;
-}
-
-.sport-content {
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--spacing-md);
+/* Responsivo */
+@media (max-width: 800px) {
+  .home-promo-banner, .home-promo-banner.inverted {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+  .banner-text-side {
+    padding: 30px 20px;
+  }
 }
