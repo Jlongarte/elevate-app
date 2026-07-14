@@ -1,5 +1,6 @@
 import { useCatalog } from '../hooks/useCatalog';
 import ProductCard from '../components/Product/ProductCard';
+import { toast } from 'react-hot-toast';
 import '../styles/Catalog.css';
 
 interface CatalogProps {

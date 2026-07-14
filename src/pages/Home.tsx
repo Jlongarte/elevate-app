@@ -3,6 +3,7 @@ import { useHomeProducts } from '../hooks/useHomeProducts';
 import { HomeProductRow } from '../components/Home/HomeProductRow';
 import { HomeCarousel } from '../components/Home/HomeCarousel';
 import { HomeBanner } from '../components/Home/HomeBanner';
+import  InstagramPicks  from '../components/Home/InstagramPicks';
 import '../styles/Home.css';
 
 const Home: React.FC = () => {
@@ -41,6 +42,13 @@ const Home: React.FC = () => {
             subtitle="Fresh drops from our engineering lab."
             products={newReleases} 
           />
+          <HomeBanner 
+            title="MEN COLLECTION COMING SOON"
+            ctaText="Discover now"
+            imageUrl="./banner1.webp" 
+            linkTo="/catalog"
+          />
+          <InstagramPicks />
 
         </div>
       )}

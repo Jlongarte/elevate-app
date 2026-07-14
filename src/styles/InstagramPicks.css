@@ -1,0 +1,161 @@
+
+
+.instagram-picks-section {
+  width: 100%;
+  max-width: 100% !important; 
+  padding: 0;
+  font-family: inherit;
+}
+
+
+.instagram-picks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0 24px 20px 24px; 
+}
+
+.instagram-picks-header h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #000;
+  margin: 0 0 6px 0;
+}
+
+.instagram-picks-header p {
+  font-size: 0.85rem;
+  color: #767676;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Botón de seguir */
+.follow-btn {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #000;
+  text-decoration: none;
+  border-bottom: 2px solid #000;
+  padding-bottom: 4px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.follow-btn:hover {
+  color: #767676;
+  border-color: #767676;
+}
+
+/* Grid de 4 fotos */
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px; 
+  width: 100%;
+}
+
+.instagram-card {
+  display: block;
+  text-decoration: none;
+}
+
+.instagram-img-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 133%; 
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+.instagram-img-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Capa de hover  */
+.instagram-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.instagram-icon {
+  color: #fff;
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+}
+
+.overlay-tag {
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 16px;
+  transform: translateY(15px);
+  transition: transform 0.4s ease, border-color 0.2s;
+}
+
+.overlay-tag:hover {
+  border-color: #fff;
+}
+
+/* Animaciones al pasar el cursor */
+.instagram-card:hover .instagram-img-wrapper img {
+  transform: scale(1.05); 
+}
+
+.instagram-card:hover .instagram-overlay {
+  opacity: 1;
+}
+
+.instagram-card:hover .instagram-icon,
+.instagram-card:hover .overlay-tag {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   📱 ADAPTACIÓN MÓVIL RESPONSIVA (SINFÍN)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 600px) {
+  .instagram-picks-section {
+    margin: 60px 0 0 0;
+  }
+  
+  .instagram-picks-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0 16px 20px 16px;
+  }
+  
+  .instagram-grid {
+    grid-template-columns: 1fr; 
+  }
+}

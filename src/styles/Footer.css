@@ -1,0 +1,214 @@
+/* ==========================================================================
+   ⚡ ELEVATE PREMIUM MINIMALIST FOOTER
+   ========================================================================== */
+
+.elevate-footer {
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 60px;
+  margin-top: auto; /* Empuja el footer abajo si la pantalla tiene poco contenido */
+  font-family: inherit;
+}
+
+.footer-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px 60px 24px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 40px;
+}
+
+/* Marca / Logo */
+.footer-brand-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #000;
+  margin: 0;
+}
+
+.footer-logo span {
+  color: #767676;
+}
+
+.footer-manifesto {
+  font-size: 0.8rem;
+  color: #767676;
+  line-height: 1.6;
+  max-width: 300px;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Redes Sociales */
+.footer-socials {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.footer-socials a {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.footer-socials a:hover {
+  color: #767676;
+}
+
+/* Columnas de Enlaces */
+.footer-links-column h4,
+.footer-newsletter-section h4 {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #000;
+  margin: 0 0 20px 0;
+}
+
+.footer-links-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links-column a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #767676;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links-column a:hover {
+  color: #000;
+}
+
+/* Sección de Newsletter */
+.footer-newsletter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-newsletter-section p {
+  font-size: 0.8rem;
+  color: #767676;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.footer-newsletter-form {
+  display: flex;
+  margin-top: 8px;
+  border: 1px solid #e5e5e5;
+  padding: 2px;
+}
+
+.footer-newsletter-form input {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  outline: none;
+  font-family: inherit;
+}
+
+.footer-newsletter-form button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 0 20px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.footer-newsletter-form button:hover {
+  background-color: #333;
+}
+
+/* ==========================================================================
+   🔒 BARRA INFERIOR LEGAL
+   ========================================================================== */
+
+.footer-bottom-bar {
+  border-top: 1px solid #f0f0f0;
+  padding: 24px 0;
+  background-color: #fafafa;
+}
+
+.footer-bottom-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright-text {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #767676;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-legal-links a {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #767676;
+  text-decoration: none;
+}
+
+.footer-legal-links a:hover {
+  color: #000;
+}
+
+/* ==========================================================================
+   📱 ADAPTACIÓN MÓVIL RESPONSIVA
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+  }
+
+  .footer-bottom-container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  
+  .footer-legal-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}

@@ -104,6 +104,71 @@
 }
 
 /* ==========================================================================
+    EXPANDABLE SEARCH BAR 
+   ========================================================================== */
+
+.navbar-search-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 10;
+  animation: fadeInSearch 0.25s ease-out;
+}
+
+.navbar-search-form input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+  text-transform: uppercase;
+}
+
+.navbar-search-form input::placeholder {
+  color: #a3a3a3;
+}
+
+.close-search-btn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #000;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.close-search-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Animación sutil de entrada para la barra */
+@keyframes fadeInSearch {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
     USER DROPDOWN 
    ========================================================================== */
 .navbar-user-wrapper {

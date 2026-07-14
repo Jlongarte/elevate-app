@@ -1,7 +1,11 @@
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast'; // 👈 1. Importamos el componente de alertas
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import AdminDashboard from './pages/AdminDashboard';
+import Navbar from './components/Common/Navbar';
+import Footer from './components/Common/Footer';
+
+// Importaciones de tus páginas...
 import Home from './pages/Home';
 import Catalog from './pages/Catalog';
 import ProductDetail from './pages/ProductDetail';
@@ -12,10 +16,28 @@ import Register from './pages/Register';
 import Checkout from './pages/Checkout';
 import Profile from './pages/Profile';
 
-
 function App() {
   return (
-    <Router>
+    <>
+      {/* 🧭 El Navbar global */}
+      <Navbar />
+
+      {/* ✨ 2. Contenedor de alertas (estética minimalista a juego con ELEVATE) */}
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: '#000',
+            color: '#fff',
+            borderRadius: '0px', // Esquinas rectas premium
+            fontSize: '12px',
+            fontWeight: 'bold',
+            letterSpacing: '1px',
+            fontFamily: 'inherit',
+          },
+        }}
+      />
+
       <Routes>
         {/* RUTAS PÚBLICAS */}
         <Route path="/" element={<Home />} />
@@ -29,7 +51,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* RUTAS PROTEGIDAS  */}
+        {/* 🔐 RUTAS PROTEGIDAS */}
         <Route 
           path="/checkout" 
           element={
@@ -47,7 +69,7 @@ function App() {
           } 
         />
 
-        {/* RUTAS DE ADMINISTRACIÓN PROTEGIDAS (Solo Admin) */}
+        {/* 🛡️ RUTAS DE ADMINISTRACIÓN */}
         <Route 
           path="/admin" 
           element={
@@ -57,7 +79,8 @@ function App() {
           } 
         />
       </Routes>
-    </Router>
+      <Footer />
+    </>
   );
 }
 
