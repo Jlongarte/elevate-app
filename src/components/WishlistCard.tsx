@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { type Product } from '../types/index';
 
@@ -42,7 +41,7 @@ export const WishlistCard: React.FC<WishlistCardProps> = ({
         </h3>
         <p className="wishlist-item-price">€ {product.price.toFixed(2)}</p>
 
-        {/* Micro-selector integrado de Tallas */}
+        {/* Micro-selector de Tallas */}
         <div className="wishlist-quick-size">
           <label htmlFor={`size-select-${product._id}`}>SIZE:</label>
           <select
@@ -56,7 +55,7 @@ export const WishlistCard: React.FC<WishlistCardProps> = ({
           </select>
         </div>
 
-        {/* Botón de acción directo para mover a la cesta */}
+        {/* Botón para mover a la cesta */}
         <button 
           className="wishlist-add-to-bag-btn"
           onClick={onMoveToCart}

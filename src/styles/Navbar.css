@@ -1,0 +1,243 @@
+
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar-container {
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo a {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar-logo span {
+  color: #767676;
+}
+
+/* Enlaces (Desktop) */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #767676;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: #000;
+}
+
+/* Acciones */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-icon-btn, .nav-icon-container {
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  text-decoration: none;
+  padding: 4px;
+}
+
+.nav-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 800;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-link {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+    USER DROPDOWN 
+   ========================================================================== */
+.navbar-user-wrapper {
+  position: relative;
+}
+
+.user-dropdown-trigger {
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #000;
+  cursor: pointer;
+  padding: 8px 0;
+  font-family: inherit;
+}
+
+.navbar-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  width: 180px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #555;
+  text-decoration: none;
+  padding: 12px 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.dropdown-item:hover {
+  background-color: #fafafa;
+  color: #000;
+}
+
+.admin-dropdown-item {
+  color: #a30000;
+}
+
+.dropdown-divider {
+  border: 0;
+  border-top: 1px solid #f0f0f0;
+  margin: 0;
+}
+
+.logout-btn {
+  color: #767676;
+}
+
+/* ==========================================================================
+   MOBILE MENU (Hamburguesa & Colapso)
+   ========================================================================== */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20px;
+  height: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger-bar {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 900px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid #e5e5e5;
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    pointer-events: none;
+  }
+
+  .navbar-links.mobile-active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navbar-links li {
+    width: 100%;
+  }
+
+  .navbar-links a {
+    display: block;
+    padding: 20px 24px;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  /* Animación del botón de hamburguesa a cruz "X" */
+  .mobile-menu-toggle.open .hamburger-bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .mobile-menu-toggle.open .hamburger-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.open .hamburger-bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}

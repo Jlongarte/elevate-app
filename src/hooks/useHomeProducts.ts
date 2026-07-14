@@ -12,7 +12,7 @@ export const useHomeProducts = () => {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await fetch('https://elevate-backend-bqdb.onrender.com/api/products');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products`);
         if (!response.ok) throw new Error('Failed to load products from Elevate servers.');
         
         const data = await response.json();
@@ -22,12 +22,12 @@ export const useHomeProducts = () => {
         else if (data && Array.isArray(data.products)) allProducts = data.products;
 
         if (allProducts.length > 0) {
-          // 🔀 Algoritmo rápido para desordenar el array original (Shuffle)
+          // Algoritmo para desordenar el array original (Shuffle)
           const shuffled = [...allProducts].sort(() => 0.5 - Math.random());
           
-          // 🎯 Extraemos 4 productos únicos para cada sección
+          // Extraemos 4 productos únicos para cada sección
           setMostWanted(shuffled.slice(0, 4));
-          setNewReleases(shuffled.slice(4, 8)); // Los siguientes 4 de la lista desordenada
+          setNewReleases(shuffled.slice(4, 8)); 
         }
       } catch (err: any) {
         setError(err.message || 'Something went wrong loading Home Collection.');

@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-// Definimos la estructura del usuario según lo que devuelve tu API en Render
+// Definimos la estructura del usuario según lo que devuelve el back
 interface User {
   _id: string;
   name: string;
@@ -15,7 +15,7 @@ interface AuthState {
   error: string | null;
 }
 
-// Intentamos recuperar la sesión del localStorage para que no se cierre al refrescar la pantalla
+// Recuperamos la sesión del localStorage para que no se cierre al refrescar la pantalla
 const savedUser = localStorage.getItem('elevate_user');
 const savedToken = localStorage.getItem('elevate_token');
 
@@ -30,7 +30,7 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    // Se dispara cuando el usuario hace clic en "Sign In" o "Register" (activa el spinner/loading)
+    // Se dispara cuando el usuario hace clic en "Sign In" o "Register" 
     authStart: (state) => {
       state.isLoading = true;
       state.error = null;

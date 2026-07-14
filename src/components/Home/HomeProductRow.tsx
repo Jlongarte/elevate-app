@@ -1,5 +1,4 @@
-import React from 'react';
-import ProductCard from '../Product/ProductCard/ProductCard';
+import ProductCard from '../Product/ProductCard';
 import { type Product } from '../../types/index';
 
 interface HomeProductRowProps {
@@ -18,7 +17,7 @@ export const HomeProductRow: React.FC<HomeProductRowProps> = ({ title, subtitle,
         {subtitle && <p className="home-section-subtitle">{subtitle}</p>}
       </div>
       
-      {/* 🚀 Reutilizamos la composición fija de 4 columnas que creamos para el e-commerce */}
+    
       <div className="products-grid">
         {products.map((product) => (
           <ProductCard key={product._id} product={product} />

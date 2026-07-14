@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './HomeBanner.css'; // Mantenemos sus estilos organizados
+import '../../styles/HomeBanner.css'; 
 
 interface HomeBannerProps {
   title: string;

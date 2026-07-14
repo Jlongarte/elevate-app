@@ -1,29 +1,63 @@
-import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Common/Navbar/Navbar';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import AdminDashboard from './pages/AdminDashboard';
+import Home from './pages/Home';
 import Catalog from './pages/Catalog';
 import ProductDetail from './pages/ProductDetail';
-import Home from './pages/Home';
+import Cart from './pages/Cart';
 import Wishlist from './pages/Wishlist';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Checkout from './pages/Checkout';
+import Profile from './pages/Profile';
 
-// Quitamos la importación de BrowserRouter y las etiquetas <Router> 
-// porque ya están envolviendo a <App /> desde tu archivo main.tsx
+
 function App() {
   return (
-    <>
-      <Navbar />
+    <Router>
       <Routes>
-        {/* Rutas principales del catálogo */}
-        <Route path="/" element={<Home/>} />
+        {/* RUTAS PÚBLICAS */}
+        <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog category="ALL PRODUCTS" />} />
         <Route path="/t-shirts" element={<Catalog category="T-Shirts & Tops" />} />
         <Route path="/leggings" element={<Catalog category="LEGGINGS" />} />
         <Route path="/other" element={<Catalog category="OTHER" />} />
-        
-        {/* Ficha técnica individual */}
         <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {/* RUTAS PROTEGIDAS  */}
+        <Route 
+          path="/checkout" 
+          element={
+            <ProtectedRoute>
+              <Checkout />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/profile" 
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } 
+        />
+
+        {/* RUTAS DE ADMINISTRACIÓN PROTEGIDAS (Solo Admin) */}
+        <Route 
+          path="/admin" 
+          element={
+            <ProtectedRoute adminOnly={true}>
+              <AdminDashboard />
+            </ProtectedRoute>
+          } 
+        />
       </Routes>
-    </>
+    </Router>
   );
 }
 

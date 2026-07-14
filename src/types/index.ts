@@ -33,7 +33,7 @@ export interface User {
 
 // Interfaz para los Productos dentro de un Pedido
 export interface OrderItem {
-  productId: Product | string; // Puede ser el objeto completo (si usas populate) o solo el ID
+  productId: Product | string; 
   quantity: number;
 }
 

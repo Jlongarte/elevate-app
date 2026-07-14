@@ -16,14 +16,14 @@ export const useWishlistActions = () => {
   const handleMoveToCart = (product: Product) => {
     const chosenSize = selectedSizes[product._id] || product.sizes?.[0] || 'M';
     
-    // Inyectamos los atributos seleccionados respetando la estructura de tu cartSlice
+    // Inyectamos los atributos seleccionados 
     const productWithAttributes = {
       ...product,
       size: chosenSize,
     };
 
     dispatch(addToCart({ product: productWithAttributes, quantity: 1 }));
-    dispatch(toggleWishlist(product)); // Removemos de favoritos al pasar a la cesta
+    dispatch(toggleWishlist(product)); // Quitamos de favoritos al pasar a la cesta
     
     alert(`Moved ${product.name} to your Bag!`);
   };

@@ -1,6 +1,4 @@
-/* ==========================================================================
-   🛍️ COMPONENTE: PRODUCT CARD PREMIUM
-   ========================================================================== */
+
 
 .product-card {
   display: flex;
@@ -32,7 +30,7 @@
   transform: scale(1.02);
 }
 
-/* 🤍 Botón de Favoritos minimalista flotante */
+/* Botón de Favoritos  */
 .product-card .wishlist-btn {
   position: absolute;
   top: 16px;
@@ -59,13 +57,13 @@
   transform: scale(1.1);
 }
 
-/* Estado Activo (Añadido a Favoritos) */
+/* Estado Activo  */
 .product-card .wishlist-btn.active svg {
   fill: #000;
   stroke: #000;
 }
 
-/* 📝 Detalles de Texto */
+/* Detalles de Texto */
 .product-card h4 {
   font-family: inherit;
   font-size: 0.95rem;
@@ -76,7 +74,7 @@
   letter-spacing: 0.2px;
 }
 
-/* Variantes secundarias (como el color o detalles que gustes meter abajo) */
+/* Variantes secundarias  */
 .product-card .product-meta {
   font-size: 0.85rem;
   color: #767676;

@@ -1,7 +1,7 @@
 .home-fullwidth-banner {
   position: relative;
   width: 100%;
-  height: 60vh; /* Altura ideal balanceada para banners intermedios */
+  height: 60vh; 
   background-size: cover;
   background-position: center;
   display: flex;
@@ -16,7 +16,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.15); /* Capa sutil para asegurar el contraste de las letras blancas */
+  background: rgba(0, 0, 0, 0.15); 
   z-index: 1;
 }
 
@@ -39,7 +39,7 @@
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* ⚪ Botón blanco ovalado idéntico a tu diseño */
+/*  Botón blanco  */
 .banner-fullwidth-btn {
   background-color: #fff;
   color: #000;
@@ -47,7 +47,7 @@
   padding: 14px 40px;
   font-size: 0.9rem;
   font-weight: 700;
-  border-radius: 50px; /* Bordes totalmente redondeados */
+  border-radius: 50px; 
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.2s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);

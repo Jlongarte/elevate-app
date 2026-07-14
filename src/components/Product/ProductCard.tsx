@@ -1,9 +1,9 @@
 
 import { useNavigate } from 'react-router-dom';
-import { type Product } from '../../../types/index';
-import { useAppDispatch, useAppSelector } from '../../../app/store';
-import { toggleWishlist } from '../../../features/wishlist/wishlistSlice';
-import './ProductCard.css';
+import { type Product } from '../../types/index';
+import { useAppDispatch, useAppSelector } from '../../app/store';
+import { toggleWishlist } from '../../features/wishlist/wishlistSlice';
+import '../../styles/ProductCard.css';
 
 interface ProductCardProps {
   product: Product;
@@ -26,7 +26,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     dispatch(toggleWishlist(product));
   };
 
-  // 📸 Sacamos la primera imagen del array o usamos una de repuesto si viene vacío
+  // Sacamos la primera imagen del array o usamos una de repuesto si viene vacío
   const mainImage = product.images && product.images.length > 0 
     ? product.images[0] 
     : 'https://via.placeholder.com/500x667.png?text=No+Image+Available';
@@ -46,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     </button>
   </div>
   <h4>{product.name}</h4>
-  <p className="product-meta">{product.colors?.[0] || 'Core Collection'}</p> {/* Detalle secundario */}
+  <p className="product-meta">{product.colors?.[0] || 'Core Collection'}</p> 
   <p className="price">€ {product.price.toFixed(2)}</p>
 </div>
   );

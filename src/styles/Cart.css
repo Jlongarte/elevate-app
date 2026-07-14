@@ -1,0 +1,291 @@
+
+
+.cart-page-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  min-height: 80vh;
+}
+
+.cart-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 16px;
+  margin-bottom: 40px;
+}
+
+.cart-page-header h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin: 0;
+  color: #000;
+}
+
+.clear-cart-text-btn {
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #767676;
+  text-decoration: underline;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.clear-cart-text-btn:hover {
+  color: #000;
+}
+
+/* Distribución en dos columnas */
+.cart-split-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 50px;
+}
+
+/* ==========================================================================
+    CartItemRow.tsx
+   ========================================================================== */
+.cart-items-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cart-item-row {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 24px;
+}
+
+.cart-item-image-box {
+  width: 110px;
+  aspect-ratio: 3 / 4;
+  background-color: #fcfcfc;
+  overflow: hidden;
+  display: flex;
+  flex-shrink: 0;
+}
+
+.cart-item-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-item-details-box {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.cart-item-category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #767676;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cart-item-remove-btn {
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  color: #a0a0a0;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.cart-item-remove-btn:hover {
+  color: #000;
+}
+
+.cart-item-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.cart-item-title a {
+  color: #000;
+  text-decoration: none;
+}
+
+.cart-item-specs {
+  display: flex;
+  gap: 16px;
+  font-size: 0.75rem;
+  color: #767676;
+  margin-bottom: auto; 
+}
+
+.cart-item-specs strong {
+  color: #000;
+}
+
+.cart-item-price-qty-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+/* Control de Cantidad */
+.cart-qty-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  height: 32px;
+}
+
+.cart-qty-selector button {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 100%;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cart-qty-selector button:hover {
+  background-color: #f9f9f9;
+}
+
+.cart-qty-selector span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0 8px;
+}
+
+.cart-item-subtotal-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #000;
+}
+
+/* ==========================================================================
+    PANEL RESUMEN LATERAL 
+   ========================================================================== */
+.cart-summary-column {
+  position: relative;
+}
+
+.summary-sticky-card {
+  position: sticky;
+  top: 100px; 
+  background-color: #fafafa;
+  border: 1px solid #f0f0f0;
+  padding: 30px;
+}
+
+.summary-sticky-card h2 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin: 0 0 24px 0;
+  color: #000;
+}
+
+.summary-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.shipping-upsell-text {
+  font-size: 0.75rem;
+  color: #767676;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 10px;
+  margin: 10px 0 20px 0;
+}
+
+.summary-divider {
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+  margin: 20px 0;
+}
+
+.summary-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+.summary-checkout-wrapper button {
+  width: 100%;
+  height: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.summary-disclaimer {
+  font-size: 0.7rem;
+  color: #767676;
+  text-align: center;
+  line-height: 1.4;
+  margin: 16px 0 0 0;
+}
+
+/* ==========================================================================
+    VISTA CESTA VACÍA
+   ========================================================================== */
+.cart-empty-container {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  padding: 24px;
+}
+
+.cart-empty-container h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.cart-empty-container p {
+  font-size: 0.95rem;
+  color: #666;
+  max-width: 420px;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.cart-empty-container button {
+  padding: 14px 35px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cart-split-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

@@ -12,10 +12,8 @@ export const store = configureStore({
   },
 });
 
-// Tipados estrictos de Redux para TypeScript
+
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-
-// Hooks personalizados corregidos
 export const useAppDispatch = () => useDispatch<AppDispatch>();
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector; // 👈 Cambiado 'useAppSelector' por 'useSelector'
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector; 

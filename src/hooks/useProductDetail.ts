@@ -1,47 +1,98 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useAppDispatch } from '../app/store';
+import { toast } from 'react-hot-toast';
+import { addToCart } from '../features/cart/cartSlice';
+import { toggleWishlist } from '../features/wishlist/wishlistSlice';
 import { type Product } from '../types/index';
 
-export const useProductDetail = (id: string | undefined) => {
-  const [product, setProduct] = useState<Product | null>(null);
-  const [relatedItems, setRelatedItems] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [errorMsg, setErrorMsg] = useState<string>('');
+export const useProductDetail = () => {
+  const { id } = useParams<{ id: string }>();
+  const dispatch = useAppDispatch();
 
+  const [product, setProduct] = useState<Product | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Estados locales para los atributos que elige el usuario
+  const [selectedSize, setSelectedSize] = useState<string>('');
+  const [quantity, setQuantity] = useState<number>(1);
+
+ 
   useEffect(() => {
-    const fetchProductAndRelated = async () => {
-      if (!id) return;
+    const fetchProduct = async () => {
       setIsLoading(true);
-      setErrorMsg('');
-      
+      setError(null);
       try {
-        // 1. Obtener producto principal
-        const response = await fetch(`https://elevate-backend-bqdb.onrender.com/api/products/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/${id}`);
         if (!response.ok) throw new Error('Product not found.');
         const data = await response.json();
         setProduct(data);
-
-        // 2. Obtener relacionados de forma paralela y limpia
-        if (data.relatedProducts?.length > 0) {
-          const fetchedRelated = await Promise.all(
-            data.relatedProducts.map(async (relatedId: string) => {
-              const res = await fetch(`https://elevate-backend-bqdb.onrender.com/api/products/${relatedId}`);
-              return res.ok ? res.json() : null;
-            })
-          );
-          setRelatedItems(fetchedRelated.filter((item): item is Product => item !== null));
+        
+        // Auto-seleccionar la primera talla disponible
+        if (data.sizes && data.sizes.length > 0) {
+          setSelectedSize(data.sizes[0]);
         } else {
-          setRelatedItems([]);
+          setSelectedSize('M'); // fallback
         }
       } catch (err: any) {
-        setErrorMsg(err.message || 'Could not load product.');
+        setError(err.message || 'Error loading product details.');
       } finally {
         setIsLoading(false);
       }
     };
 
-    fetchProductAndRelated();
-    window.scrollTo(0, 0);
+    if (id) fetchProduct();
   }, [id]);
 
-  return { product, relatedItems, isLoading, errorMsg };
+ // Acción para añadir al carrito
+  const handleAddToCart = () => {
+    if (!product) return;
+
+    const defaultColor = product.colors && product.colors.length > 0 ? product.colors[0] : 'core';
+
+    const productWithAttributes = {
+      ...product,
+      size: selectedSize,
+      color: defaultColor,
+    };
+
+    dispatch(addToCart({ product: productWithAttributes, quantity }));
+    
+  
+    toast.success(`ADDED ${quantity}x ${product.name.toUpperCase()} (SIZE: ${selectedSize}) TO YOUR BAG`, {
+      
+      style: {
+        borderLeft: '4px solid #fff', 
+      }
+    });
+  };
+
+  // Acción para favoritos
+  const handleAddToWishlist = () => {
+    if (!product) return;
+    dispatch(toggleWishlist(product));
+    
+  
+    toast.success(`SAVED ${product.name.toUpperCase()} TO WISHLIST`, {
+     
+      style: {
+        borderLeft: '4px solid #fff',
+      }
+    });
+  };
+
+  
+
+  return {
+    product,
+    isLoading,
+    error,
+    selectedSize,
+    setSelectedSize,
+    quantity,
+    setQuantity,
+    handleAddToCart,
+    handleAddToWishlist,
+  };
 };

@@ -1,0 +1,297 @@
+
+.product-detail-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  min-height: 80vh;
+}
+
+/* Distribución limpia en dos columnas simétricas */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ==========================================================================
+    GALERÍA DE IMÁGENES
+   ========================================================================== */
+.detail-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.product-main-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: #fcfcfc;
+  overflow: hidden;
+  display: flex;
+}
+
+.product-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.product-thumbnails-grid {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.product-thumbnails-grid button {
+  width: 70px;
+  aspect-ratio: 3 / 4;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+
+.product-thumbnails-grid button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+    PANEL DE INFORMACIÓN Y COMPRA
+   ========================================================================== */
+.detail-info-panel {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 100px; 
+}
+
+.detail-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #767676;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.detail-title {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin: 0 0 12px 0;
+  color: #000;
+  line-height: 1.1;
+}
+
+.detail-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 20px 0;
+}
+
+.detail-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0 0 24px 0;
+}
+
+.detail-divider {
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+  margin: 24px 0;
+}
+
+/* ==========================================================================
+    OPCIONES: TALLA Y CANTIDAD
+   ========================================================================== */
+.detail-option-section {
+  margin-bottom: 24px;
+}
+
+.option-title {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+/* Grid de Botones de Talla */
+.sizes-buttons-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.size-square-btn {
+  min-width: 48px;
+  height: 48px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.size-square-btn:hover {
+  border-color: #000;
+}
+
+.size-square-btn.active {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+/* Selector de cantidad */
+.detail-qty-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  width: fit-content;
+  height: 40px;
+}
+
+.detail-qty-selector button {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.detail-qty-selector button:hover {
+  background-color: #f9f9f9;
+}
+
+.detail-qty-selector span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0 16px;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   ADD TO BAG / WISHLIST
+   ========================================================================== */
+.detail-actions-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+  margin-bottom: 35px;
+}
+
+.detail-add-to-bag-btn {
+  width: 100%;
+  height: 52px;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.detail-add-to-bag-btn:hover:not(:disabled) {
+  background-color: #333;
+  border-color: #333;
+}
+
+.detail-add-to-bag-btn:disabled {
+  background-color: #f5f5f5;
+  border-color: #e5e5e5;
+  color: #b5b5b5;
+  cursor: not-allowed;
+}
+
+.detail-wishlist-btn {
+  width: 100%;
+  height: 52px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #e5e5e5;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.detail-wishlist-btn:hover {
+  border-color: #000;
+}
+
+/* ==========================================================================
+   Specs 
+   ========================================================================== */
+.detail-specs-box {
+  background-color: #fafafa;
+  border: 1px solid #f0f0f0;
+  padding: 24px;
+}
+
+.detail-specs-box h3 {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 0 0 14px 0;
+  color: #000;
+}
+
+.detail-specs-box ul {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-specs-box li {
+  font-size: 0.8rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Mensajes de Estado */
+.detail-status-msg {
+  text-align: center;
+  padding: 120px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #767676;
+}
+
+.detail-status-msg.error {
+  color: #a30000;
+}
+
+
+@media (max-width: 900px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .detail-info-panel {
+    position: static;
+  }
+}

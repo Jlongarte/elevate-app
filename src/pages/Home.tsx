@@ -3,10 +3,10 @@ import { useHomeProducts } from '../hooks/useHomeProducts';
 import { HomeProductRow } from '../components/Home/HomeProductRow';
 import { HomeCarousel } from '../components/Home/HomeCarousel';
 import { HomeBanner } from '../components/Home/HomeBanner';
-import './Home.css';
+import '../styles/Home.css';
 
 const Home: React.FC = () => {
-  // 📡 Petición HTTP limpia a Render para las filas dinámicas
+  
   const { mostWanted, newReleases, isLoading, error } = useHomeProducts();
 
   return (
@@ -20,22 +20,22 @@ const Home: React.FC = () => {
       {!isLoading && !error && (
         <div className="home-content-layout">
           
-          {/* Fila 1: Most Wanted (4 productos de la API) */}
+          {/* Fila 1: Most Wanted */}
           <HomeProductRow 
             title="MOST WANTED" 
             subtitle="The absolute community favorites."
             products={mostWanted} 
           />
 
-          {/* Banner Intermedio de Ancho Completo Centrado (Ejemplo: tu Summer Edit) */}
+          {/* Banner Intermedio de Ancho Completo Centrado */}
           <HomeBanner 
             title="SUMMER EDIT"
             ctaText="Discover now"
-            imageUrl="https://res.cloudinary.com/dzo0dufcr/image/upload/v1783757704/rachel_3_yoxpzi.jpg" // Puedes sustituir por tu imagen real
+            imageUrl="./banner2.jpeg" 
             linkTo="/catalog"
           />
 
-          {/* Fila 2: New Releases (4 productos de la API) */}
+          {/* Fila 2: New Releases */}
           <HomeProductRow 
             title="NEW RELEASES" 
             subtitle="Fresh drops from our engineering lab."

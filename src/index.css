@@ -1,33 +1,25 @@
 :root {
-  /* Paleta de Colores - Estilo Sport Core */
-  --color-primary: #111111;       /* Negro intenso para encabezados y fuerza visual */
-  --color-secondary: #ff5a00;     /* Naranja enérgico (Accent) para botones de acción y ofertas */
-  --color-success: #10b981;       /* Verde para stock disponible y checkout exitoso */
-  --color-error: #ef4444;         /* Rojo para errores y alertas */
-  
-  /* Tonos Neutros para Fondos y Texto */
-  --bg-main: #ffffff;             /* Fondo principal limpio */
-  --bg-surface: #f7f9fb;          /* Fondo secundario (tarjetas, secciones) */
-  --text-main: #1f2937;           /* Texto principal muy legible */
-  --text-muted: #6b7280;          /* Texto secundario para descripciones */
-  --color-border: #e5e7eb;        /* Bordes sutiles */
-
-  /* Tipografía y Espaciados */
+  --color-primary: #111111;
+  --color-secondary: #ff5a00;
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --bg-main: #ffffff;
+  --bg-surface: #f7f9fb;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --color-border: #e5e7eb;
   --font-main: 'Helvetica Neue', Arial, sans-serif;
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
-
-  /* Efectos y Animaciones */
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
   --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   --transition: all 0.25s ease-in-out;
 }
 
-/* Reseteo básico para aplicar las variables */
 * {
   margin: 0;
   padding: 0;

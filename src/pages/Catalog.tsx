@@ -1,14 +1,13 @@
-import React from 'react';
 import { useCatalog } from '../hooks/useCatalog';
-import ProductCard from '../components/Product/ProductCard/ProductCard';
-import './Catalog.css';
+import ProductCard from '../components/Product/ProductCard';
+import '../styles/Catalog.css';
 
 interface CatalogProps {
-  category: string; // Recibe el texto de la ruta (Ej: "T-Shirts & Tops")
+  category: string; 
 }
 
 const Catalog: React.FC<CatalogProps> = ({ category }) => {
-  // 📡 Pasamos la categoría de la ruta a nuestro Custom Hook
+  
   const {
     products,
     isLoading,
@@ -26,7 +25,7 @@ const Catalog: React.FC<CatalogProps> = ({ category }) => {
         <p>Engineered core collection for high-performance training.</p>
       </header>
 
-      {/* Mini-Barra de utilidades (Buscador + Ordenación por precio) */}
+      {/* Mini-Barra de Buscador + Ordenación por precio */}
       <div className="catalog-filters-bar">
         <div className="filter-search-box">
           <input

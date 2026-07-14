@@ -1,6 +1,3 @@
-/* ==========================================================================
-   🖤 ESTILOS WISHLIST ATHLEISURE MINIMALISTA
-   ========================================================================== */
 
 .wishlist-page-container {
   max-width: 1300px;
@@ -31,7 +28,7 @@
   margin: 0;
 }
 
-/* Rejilla de 4 columnas idéntica al Catálogo */
+/* Grid de 4 columnas  */
 .wishlist-items-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -46,7 +43,7 @@
   border: 1px solid #f0f0f0;
 }
 
-/* Botón de eliminar superior derecho */
+/* Botón de eliminar  */
 .wishlist-remove-btn {
   position: absolute;
   top: 12px;
@@ -88,7 +85,7 @@
 .wishlist-img-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Ajuste premium sin deformaciones */
+  object-fit: contain; 
 }
 
 .wishlist-card-details {
@@ -146,7 +143,7 @@
   cursor: pointer;
 }
 
-/* Botón de añadir a la cesta inferior */
+/* Botón de añadir a la cesta */
 .wishlist-add-to-bag-btn {
   width: 100%;
   height: 42px;
@@ -159,7 +156,7 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  margin-top: auto; /* Se alinea abajo siempre de manera uniforme */
+  margin-top: auto; 
 }
 
 .wishlist-add-to-bag-btn:hover:not(:disabled) {
@@ -173,7 +170,7 @@
 }
 
 /* ==========================================================================
-   📭 VISTA WISHLIST VACÍA
+    VISTA WISHLIST VACÍA
    ========================================================================== */
 .wishlist-empty-container {
   width: 100%;

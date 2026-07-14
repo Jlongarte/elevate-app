@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 interface CarouselSlide {
@@ -14,14 +14,14 @@ export const HomeCarousel: React.FC = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // 📸 Configurado exactamente con 3 bloques/fotos
+  
   const slides: CarouselSlide[] = [
     {
       id: 1,
       tagline: "CORE COLLECTION 2026",
       title: "ELEVATE YOUR PERFORMANCE",
       subtitle: "Premium athleisure engineered for relentless training.",
-      imageUrl: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=1600&q=80",
+      imageUrl: "./hero-image1.webp",
       linkTo: "/catalog"
     },
     {
@@ -29,7 +29,7 @@ export const HomeCarousel: React.FC = () => {
       tagline: "CLOUD KNIT SEAMLESS",
       title: "ZERO DISTRACTIONS",
       subtitle: "Experience second-skin fit with ultra-breathable fabrics.",
-      imageUrl: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1600&q=80",
+      imageUrl: "./hero-image2.webp",
       linkTo: "/catalog"
     },
     {
@@ -37,7 +37,7 @@ export const HomeCarousel: React.FC = () => {
       tagline: "SUMMER ESSENTIALS",
       title: "BUILT FOR INTENSITY",
       subtitle: "Moisture-wicking gear that moves effortlessly with you.",
-      imageUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80",
+      imageUrl: "./hero-image3.webp",
       linkTo: "/catalog"
     }
   ];

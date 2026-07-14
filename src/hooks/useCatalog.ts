@@ -2,15 +2,13 @@ import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { type Product } from '../types/index';
 
-// 🎯 Ahora el hook recibe la categoría que tú le inyectas desde las rutas de App.tsx
+
 export const useCatalog = (routeCategory: string) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  
-  // Mantenemos los buscadores y la ordenación como estados reactivos de la URL
   const searchQuery = searchParams.get('search') || '';
   const sortBy = searchParams.get('sort') || 'default';
 
@@ -28,13 +26,13 @@ export const useCatalog = (routeCategory: string) => {
     setSearchParams(newParams);
   };
 
-  // Petición inicial a los servidores de Render
+  // Petición inicial al servidor
   useEffect(() => {
     const fetchProducts = async () => {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await fetch('https://elevate-backend-bqdb.onrender.com/api/products');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products`);
         if (!response.ok) throw new Error('Failed to load catalog products.');
         
         const data = await response.json();
@@ -53,11 +51,11 @@ export const useCatalog = (routeCategory: string) => {
     fetchProducts();
   }, []);
 
-  // El motor de filtrado inteligente emparejando con tu prop estática de la ruta
+  // Motor de filtrado 
   const filteredProducts = useMemo(() => {
     let result = [...products];
 
-    // 1. Filtro por buscador
+    // Filtro por buscador
     if (searchQuery.trim() !== '') {
       const query = searchQuery.toLowerCase();
       result = result.filter(
@@ -65,7 +63,7 @@ export const useCatalog = (routeCategory: string) => {
       );
     }
 
-    // 2. Filtro por la categoría que viene inyectada desde App.tsx (Blindado contra espacios)
+    // Filtro por la categoría 
     if (routeCategory !== 'ALL PRODUCTS') {
       const cleanUrlCategory = routeCategory.toLowerCase().replace(/\s+/g, '');
       
@@ -83,7 +81,7 @@ export const useCatalog = (routeCategory: string) => {
       });
     }
 
-    // 3. Ordenación por precio
+    // Ordenación por precio
     if (sortBy === 'price-low') {
       result.sort((a, b) => a.price - b.price);
     } else if (sortBy === 'price-high') {
@@ -91,7 +89,7 @@ export const useCatalog = (routeCategory: string) => {
     }
 
     return result;
-  }, [products, searchQuery, routeCategory, sortBy]); // 👈 Escucha los cambios de la ruta
+  }, [products, searchQuery, routeCategory, sortBy]); 
 
   return {
     products: filteredProducts,

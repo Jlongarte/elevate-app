@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { useAppSelector } from '../app/store';
 import { useWishlistActions } from '../hooks/useWishlistActions';
 import { WishlistCard } from '../components/WishlistCard';
-import Button from '../components/Common/Button/Button';
-import './Wishlist.css';
+import Button from '../components/Common/Button';
+import '../styles/Wishlist.css';
 
 const Wishlist: React.FC = () => {
   const { items } = useAppSelector((state) => state.wishlist);
@@ -30,7 +30,7 @@ const Wishlist: React.FC = () => {
         <p>{items.length} {items.length === 1 ? 'ITEM' : 'ITEMS'} SAVED</p>
       </header>
 
-      {/* Rejilla optimizada con componentes atómicos */}
+      {/* Grid optimizada con componentes atómicos */}
       <div className="wishlist-items-grid">
         {items.map((product) => {
           const defaultSize = product.sizes?.[0] || 'M';
