@@ -13,14 +13,13 @@ const Navbar: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   
-  // Estados para Mobile & Dropdowns
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
 
   // REDUX AUTH
   const user = useAppSelector((state) => state.auth.user);
   const isLoggedIn = !!user;
-  const isAdmin = user?.isAdmin || false;
+  const isAdmin = user?.role?.toLowerCase() === 'admin';
 
   // REDUX CONTADORES
   const cartItems = useAppSelector((state) => state.cart.items);
@@ -33,7 +32,7 @@ const Navbar: React.FC = () => {
     dispatch(logout());
     setIsUserDropdownOpen(false);
     setIsMobileMenuOpen(false);
-    toast.success('LOGGED OUT SUCCESSFULLY', { icon: '👋' });
+    toast.success('LOGGED OUT SUCCESSFULLY');
     navigate('/');
   };
 
@@ -46,7 +45,6 @@ const Navbar: React.FC = () => {
     }
   };
 
-  // Cerrar el dropdown del usuario si se hace clic fuera de él
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -123,7 +121,7 @@ const Navbar: React.FC = () => {
             {cartCount > 0 && <span className="nav-badge cart-badge">{cartCount}</span>}
           </Link>
 
-          {/*  DESPLEGABLE CON PERFIL */}
+          {/* DESPLEGABLE CON PERFIL */}
           {isLoggedIn ? (
             <div className="navbar-user-wrapper" ref={dropdownRef}>
               <button 
@@ -135,15 +133,7 @@ const Navbar: React.FC = () => {
               
               {isUserDropdownOpen && (
                 <div className="navbar-dropdown-menu">
-                  <Link 
-                    to="/profile" 
-                    className="dropdown-item" 
-                    onClick={() => setIsUserDropdownOpen(false)}
-                  >
-                    Perfil / Pedidos
-                  </Link>
-                  
-                  {isAdmin && (
+                  {isAdmin ? (
                     <Link 
                       to="/admin" 
                       className="dropdown-item admin-dropdown-item" 
@@ -151,11 +141,19 @@ const Navbar: React.FC = () => {
                     >
                       Panel Admin
                     </Link>
+                  ) : (
+                    <Link 
+                      to="/profile" 
+                      className="dropdown-item" 
+                      onClick={() => setIsUserDropdownOpen(false)}
+                    >
+                      Profile / Orders
+                    </Link>
                   )}
                   
                   <hr className="dropdown-divider" />
                   <button onClick={handleLogoutClick} className="dropdown-item logout-btn">
-                    Cerrar sesión
+                    Logout
                   </button>
                 </div>
               )}

@@ -5,7 +5,7 @@ import Button from '../components/Common/Button';
 import '../styles/Auth.css';
 
 const Login: React.FC = () => {
-  const { handleLogin, isLoading, error } = useAuth();
+  const { handleLogin, error } = useAuth();
   const [searchParams] = useSearchParams();
   
   // Si venimos redirigidos del carrito porque hay que estar logueado, lo guardamos para volver allí
@@ -13,11 +13,17 @@ const Login: React.FC = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLocalLoading, setIsLocalLoading] = useState(false); 
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim() && password.trim()) {
-      handleLogin(email, password, redirect);
+    if (email.trim() && password.trim() && !isLocalLoading) {
+      setIsLocalLoading(true);
+      try {
+        await handleLogin(email, password, redirect);
+      } catch (err) {
+        setIsLocalLoading(false);
+      }
     }
   };
 
@@ -38,6 +44,7 @@ const Login: React.FC = () => {
               placeholder="example@elevate.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              disabled={isLocalLoading}
             />
           </div>
 
@@ -49,11 +56,12 @@ const Login: React.FC = () => {
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              disabled={isLocalLoading}
             />
           </div>
 
-          <Button variant="primary" type="submit" disabled={isLoading}>
-            {isLoading ? 'SIGNING IN...' : 'SIGN IN'}
+          <Button variant="primary" type="submit" disabled={isLocalLoading}>
+            {isLocalLoading ? 'SIGNING IN...' : 'SIGN IN'}
           </Button>
         </form>
 

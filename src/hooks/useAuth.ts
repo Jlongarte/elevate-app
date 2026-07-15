@@ -8,39 +8,61 @@ export const useAuth = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   
-  // Consumimos el estado global de autenticación de Redux
   const { user, token, isLoading, error: authError } = useAppSelector((state) => state.auth);
   const [localError, setLocalError] = useState<string | null>(null);
 
   // Lógica de inicio de sesión
-  const handleLogin = async (email: string, password: string, redirectTo: string = '/') => {
-    dispatch(authStart());
-    setLocalError(null);
-    try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
 
-      const data = await response.json();
+const handleLogin = async (email: string, password: string, redirectPath: string) => {
+  dispatch(authStart());
+  try {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    });
 
-      if (!response.ok) {
-        throw new Error(data.message || 'Invalid email or password.');
-      }
+    const data = await response.json();
 
-      // Guardamos la sesión en Redux y LocalStorage
-      dispatch(authSuccess({ user: data, token: data.token }));
-      
-      toast.success(`WELCOME BACK, ${data.name.toUpperCase()}`, { icon: '🔑' });
-      navigate(redirectTo);
-    } catch (err: any) {
-      const errMsg = err.message || 'Something went wrong.';
-      dispatch(authFailure(errMsg));
-      setLocalError(errMsg);
-      toast.error(errMsg.toUpperCase());
+    if (!response.ok) {
+      throw new Error(data.message || 'Failed to login');
     }
-  };
+
+    const sessionToken = data.token;
+    
+    // Estructuramos el usuario limpio
+    const loggedUser = {
+      _id: data.user?._id || data._id,
+      name: data.user?.name || data.name,
+      email: data.user?.email || data.email,
+      role: data.user?.role || data.role
+    };
+
+    // Guardamos síncronamente en localStorage de inmediato
+    localStorage.setItem('elevate_user', JSON.stringify(loggedUser));
+    localStorage.setItem('elevate_token', sessionToken);
+
+    // Guardamos en Redux
+    dispatch(authSuccess({ user: loggedUser, token: sessionToken }));
+
+    const isAdmin = loggedUser.role?.toLowerCase() === 'admin';
+
+   
+
+    if (isAdmin) {
+      toast.success('WELCOME BACK, ADMINISTRATOR');
+      
+      navigate('/admin', { replace: true }); 
+    } else {
+      toast.success(`WELCOME BACK, ${loggedUser.name.toUpperCase()}`, { icon: '⚡' });
+      navigate(redirectPath, { replace: true }); 
+    }
+
+  } catch (err: any) {
+    dispatch(authFailure(err.message || 'Something went wrong'));
+    toast.error(err.message.toUpperCase());
+  }
+};
 
   // Lógica de registro de usuario
   const handleRegister = async (name: string, email: string, password: string) => {
@@ -59,8 +81,11 @@ export const useAuth = () => {
         throw new Error(data.message || 'Registration failed.');
       }
 
+      const registeredUser = data.user ? data.user : data;
+      const sessionToken = data.token;
+
       // Auto-logueamos al usuario tras registrarse con éxito
-      dispatch(authSuccess({ user: data, token: data.token }));
+      dispatch(authSuccess({ user: registeredUser, token: sessionToken }));
       
       toast.success(`ACCOUNT CREATED SUCCESSFULLY!`);
       navigate('/catalog');

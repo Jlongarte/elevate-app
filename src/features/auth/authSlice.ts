@@ -1,11 +1,11 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-// Definimos la estructura del usuario según lo que devuelve el back
+
 interface User {
   _id: string;
   name: string;
   email: string;
-  isAdmin?: boolean;
+  role: string; 
 }
 
 interface AuthState {
@@ -19,9 +19,22 @@ interface AuthState {
 const savedUser = localStorage.getItem('elevate_user');
 const savedToken = localStorage.getItem('elevate_token');
 
+
+const getSafeUser = (): User | null => {
+  if (!savedUser || savedUser === 'undefined') {
+    return null; 
+  }
+  try {
+    return JSON.parse(savedUser);
+  } catch (error) {
+    console.error("Error parsing user from localStorage:", error);
+    return null; 
+  }
+};
+
 const initialState: AuthState = {
-  user: savedUser ? JSON.parse(savedUser) : null,
-  token: savedToken || null,
+  user: getSafeUser(), 
+  token: savedToken && savedToken !== 'undefined' ? savedToken : null, 
   isLoading: false,
   error: null,
 };
@@ -42,6 +55,7 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.error = null;
       
+      console.log("Datos de usuario guardados en Redux:", action.payload.user);
       localStorage.setItem('elevate_user', JSON.stringify(action.payload.user));
       localStorage.setItem('elevate_token', action.payload.token);
     },

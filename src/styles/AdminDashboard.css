@@ -110,3 +110,89 @@
   color: #fff;
   border-color: #000;
 }
+
+/* ==========================================================================
+   📦 ADMIN PRODUCTS LIST (MANAGE CATALOG)
+   ========================================================================== */
+
+.admin-products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 580px; /* Evita que el panel crezca infinito de forma vertical */
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Personalización del scrollbar premium */
+.admin-products-list::-webkit-scrollbar {
+  width: 4px;
+}
+.admin-products-list::-webkit-scrollbar-thumb {
+  background: #000;
+}
+
+.admin-product-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border: 1px solid #e5e5e5;
+  background-color: #fafafa;
+  transition: border-color 0.2s ease;
+}
+
+.admin-product-item:hover {
+  border-color: #000;
+}
+
+.admin-product-thumb {
+  width: 60px;
+  height: 75px;
+  object-fit: cover;
+  background-color: #f5f5f5;
+}
+
+.admin-product-details {
+  flex: 1;
+}
+
+.admin-product-details h3 {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #000;
+  margin: 0 0 4px 0;
+}
+
+.admin-product-meta {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #767676;
+  margin: 0;
+}
+
+.admin-delete-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #a3a3a3;
+  cursor: pointer;
+  padding: 12px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.admin-delete-btn:hover {
+  color: #e02424; /* Rojo de aviso elegante */
+  transform: scale(1.15);
+}
+
+.admin-loading-text {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #767676;
+  text-align: center;
+  padding: 40px 0;
+}

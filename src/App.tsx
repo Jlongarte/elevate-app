@@ -1,11 +1,11 @@
-import { Routes, Route } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast'; // 👈 1. Importamos el componente de alertas
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import AdminDashboard from './pages/AdminDashboard';
 import Navbar from './components/Common/Navbar';
 import Footer from './components/Common/Footer';
+import { useAppSelector } from './app/store';
 
-// Importaciones de tus páginas...
 import Home from './pages/Home';
 import Catalog from './pages/Catalog';
 import ProductDetail from './pages/ProductDetail';
@@ -17,19 +17,20 @@ import Checkout from './pages/Checkout';
 import Profile from './pages/Profile';
 
 function App() {
+  const user = useAppSelector((state) => state.auth.user);
+  const isAdmin = user?.role === 'admin' || user?.role === 'ADMIN';
+
   return (
     <>
-      {/* 🧭 El Navbar global */}
       <Navbar />
 
-      {/* ✨ 2. Contenedor de alertas (estética minimalista a juego con ELEVATE) */}
       <Toaster 
         position="top-right"
         toastOptions={{
           style: {
             background: '#000',
             color: '#fff',
-            borderRadius: '0px', // Esquinas rectas premium
+            borderRadius: '0px',
             fontSize: '12px',
             fontWeight: 'bold',
             letterSpacing: '1px',
@@ -51,12 +52,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* 🔐 RUTAS PROTEGIDAS */}
+        {/* RUTAS PROTEGIDAS */}
         <Route 
           path="/checkout" 
           element={
             <ProtectedRoute>
-              <Checkout />
+              {isAdmin ? <Navigate to="/admin" replace /> : <Checkout />}
             </ProtectedRoute>
           } 
         />
@@ -64,12 +65,12 @@ function App() {
           path="/profile" 
           element={
             <ProtectedRoute>
-              <Profile />
+              {isAdmin ? <Navigate to="/admin" replace /> : <Profile />}
             </ProtectedRoute>
           } 
         />
 
-        {/* 🛡️ RUTAS DE ADMINISTRACIÓN */}
+        {/* RUTAS DE ADMINISTRACIÓN */}
         <Route 
           path="/admin" 
           element={

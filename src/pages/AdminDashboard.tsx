@@ -17,11 +17,16 @@ const Admin: React.FC = () => {
     countInStock, setCountInStock,
     sizes, setSizes,
     isSubmitting,
+    products,
+    isLoadingProducts,
     handleCreateProduct,
+    handleDeleteProduct,
   } = useAdmin();
 
-  //Seguridad: Si no está logueado o no es administrador, redirige al Home
-  if (!user || !user.isAdmin) {
+  
+  const isAdmin = user?.role?.toLowerCase() === 'admin';
+
+  if (!user || !isAdmin) {
     return <Navigate to="/" replace />;
   }
 
@@ -98,9 +103,9 @@ const Admin: React.FC = () => {
               <div className="admin-field">
                 <label>CATEGORY</label>
                 <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                  <option value="T-Shirts & Tops">T-Shirts & Tops</option>
-                  <option value="LEGGINGS">Leggings</option>
-                  <option value="OTHER">Other</option>
+                  <option value="T-shirts&Tops">T-Shirts & Tops</option>
+                  <option value="Leggins">Leggings</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
@@ -145,9 +150,50 @@ const Admin: React.FC = () => {
             </div>
 
             <Button variant="primary" type="submit" disabled={isSubmitting} style={{ marginTop: '10px' }}>
-              {isSubmitting ? 'PUBLISHING PRODUCT...' : 'PUBLISH TO CATALOG'}
+              {isSubmitting ? 'PUBLISHING... ' : 'PUBLISH TO CATALOG'}
             </Button>
           </form>
+        </div>
+
+        {/* GESTIÓN Y BORRADO DE PRODUCTOS */}
+        <div className="admin-card">
+          <h2>MANAGE CATALOG</h2>
+          <hr className="admin-divider" />
+          
+          {isLoadingProducts ? (
+            <p className="admin-loading-text">LOADING CATALOG INVENTORY...</p>
+          ) : products.length === 0 ? (
+            <p className="admin-loading-text">NO PRODUCTS AVAILABLE IN THE STORE.</p>
+          ) : (
+            <div className="admin-products-list">
+              {products.map((prod) => (
+                <div key={prod._id} className="admin-product-item">
+                  <img 
+                    src={
+                      prod.images[0] && !prod.images[0].includes('via.placeholder.com')
+                        ? prod.images[0]
+                        : 'https://placehold.co/150x200/000000/FFFFFF/png?text=ELEVATE'
+                    }
+                    alt={prod.name} 
+                    className="admin-product-thumb"
+                  />
+                  <div className="admin-product-details">
+                    <h3>{prod.name.toUpperCase()}</h3>
+                    <p className="admin-product-meta">
+                      {prod.category.toUpperCase()} — {prod.price.toFixed(2)}€
+                    </p>
+                  </div>
+                  <button 
+                    onClick={() => handleDeleteProduct(prod._id)}
+                    className="admin-delete-btn"
+                    aria-label="Delete product"
+                  >
+                    ✕
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
       </div>
