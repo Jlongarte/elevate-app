@@ -1,13 +1,13 @@
 /* ==========================================================================
-   ⚡ ELEVATE PREMIUM MINIMALIST FOOTER
+   PREMIUM MINIMALIST FOOTER
    ========================================================================== */
 
 .elevate-footer {
   width: 100%;
-  background-color: #fff;
-  border-top: 1px solid #e5e5e5;
+  background-color: var(--bg-main);
+  border-top: 1px solid var(--color-border);
   padding-top: 60px;
-  margin-top: auto; /* Empuja el footer abajo si la pantalla tiene poco contenido */
+  margin-top: auto;
   font-family: inherit;
 }
 
@@ -20,61 +20,57 @@
   gap: 40px;
 }
 
-/* Marca / Logo */
 .footer-brand-section {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-md);
 }
 
 .footer-logo {
   font-size: 1.6rem;
   font-weight: 900;
   letter-spacing: -0.5px;
-  color: #000;
+  color: var(--color-primary);
   margin: 0;
 }
 
 .footer-logo span {
-  color: #767676;
+  color: var(--text-muted);
 }
 
 .footer-manifesto {
   font-size: 0.8rem;
-  color: #767676;
+  color: var(--text-muted);
   line-height: 1.6;
   max-width: 300px;
   margin: 0;
   font-weight: 500;
 }
 
-/* Redes Sociales */
 .footer-socials {
   display: flex;
-  gap: 16px;
-  margin-top: 8px;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
 }
 
 .footer-socials a {
   font-size: 0.75rem;
   font-weight: 800;
-  color: #000;
-  text-decoration: none;
+  color: var(--color-primary);
   letter-spacing: 0.5px;
-  transition: color 0.2s ease;
+  transition: var(--transition);
 }
 
 .footer-socials a:hover {
-  color: #767676;
+  color: var(--text-muted);
 }
 
-/* Columnas de Enlaces */
 .footer-links-column h4,
 .footer-newsletter-section h4 {
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 1px;
-  color: #000;
+  color: var(--color-primary);
   margin: 0 0 20px 0;
 }
 
@@ -90,16 +86,14 @@
 .footer-links-column a {
   font-size: 0.8rem;
   font-weight: 600;
-  color: #767676;
-  text-decoration: none;
-  transition: color 0.2s ease;
+  color: var(--text-muted);
+  transition: var(--transition);
 }
 
 .footer-links-column a:hover {
-  color: #000;
+  color: var(--color-primary);
 }
 
-/* Sección de Newsletter */
 .footer-newsletter-section {
   display: flex;
   flex-direction: column;
@@ -108,15 +102,15 @@
 
 .footer-newsletter-section p {
   font-size: 0.8rem;
-  color: #767676;
+  color: var(--text-muted);
   line-height: 1.5;
   margin: 0;
 }
 
 .footer-newsletter-form {
   display: flex;
-  margin-top: 8px;
-  border: 1px solid #e5e5e5;
+  margin-top: var(--spacing-sm);
+  border: 1px solid var(--color-border);
   padding: 2px;
 }
 
@@ -131,29 +125,25 @@
 }
 
 .footer-newsletter-form button {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--color-primary);
+  color: var(--bg-main);
   border: none;
   padding: 0 20px;
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: var(--transition);
 }
 
 .footer-newsletter-form button:hover {
   background-color: #333;
 }
 
-/* ==========================================================================
-   🔒 BARRA INFERIOR LEGAL
-   ========================================================================== */
-
 .footer-bottom-bar {
-  border-top: 1px solid #f0f0f0;
-  padding: 24px 0;
-  background-color: #fafafa;
+  border-top: 1px solid var(--color-border);
+  padding: var(--spacing-lg) 0;
+  background-color: var(--bg-surface);
 }
 
 .footer-bottom-container {
@@ -168,47 +158,57 @@
 .copyright-text {
   font-size: 0.7rem;
   font-weight: 700;
-  color: #767676;
+  color: var(--text-muted);
   letter-spacing: 0.5px;
   margin: 0;
 }
 
 .footer-legal-links {
   display: flex;
-  gap: 24px;
+  gap: var(--spacing-lg);
 }
 
 .footer-legal-links a {
   font-size: 0.7rem;
   font-weight: 600;
-  color: #767676;
-  text-decoration: none;
+  color: var(--text-muted);
 }
 
 .footer-legal-links a:hover {
-  color: #000;
+  color: var(--color-primary);
 }
 
-/* ==========================================================================
-   📱 ADAPTACIÓN MÓVIL RESPONSIVA
-   ========================================================================== */
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 0 var(--spacing-md) 40px var(--spacing-md);
+  }
 
-@media (max-width: 900px) {
+  .footer-bottom-container {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+/* Movil */
+@media (max-width: 767px) {
   .footer-container {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding-bottom: 40px;
+    padding: 0 var(--spacing-md) 40px var(--spacing-md);
   }
 
   .footer-bottom-container {
     flex-direction: column;
-    gap: 16px;
+    gap: var(--spacing-md);
     text-align: center;
+    padding: 0 var(--spacing-md);
   }
   
   .footer-legal-links {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: var(--spacing-md);
   }
 }

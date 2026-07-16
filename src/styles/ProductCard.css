@@ -1,19 +1,20 @@
-
+/* ==========================================================================
+   PRODUCT COMPONENT CARDS
+   ========================================================================== */
 
 .product-card {
   display: flex;
   flex-direction: column;
   background-color: transparent;
-  transition: transform 0.2s ease;
+  transition: var(--transition);
   position: relative;
 }
 
-/* Contenedor de la Imagen */
 .product-card .img-wrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 3 / 4;
-  background-color: #f7f7f7;
+  background-color: var(--bg-surface);
   overflow: hidden;
   margin-bottom: 12px;
 }
@@ -25,12 +26,10 @@
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Efecto hover suave de zoom */
 .product-card:hover .img-wrapper img {
   transform: scale(1.02);
 }
 
-/* Botón de Favoritos  */
 .product-card .wishlist-btn {
   position: absolute;
   top: 16px;
@@ -38,52 +37,50 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: var(--spacing-xs);
   z-index: 10;
-  color: #000;
-  transition: transform 0.2s ease, color 0.2s ease;
+  color: var(--color-primary);
+  transition: var(--transition);
 }
 
 .product-card .wishlist-btn svg {
   width: 22px;
   height: 22px;
-  stroke: #000;
+  stroke: var(--color-primary);
   stroke-width: 1.5;
   fill: transparent;
-  transition: fill 0.2s ease, stroke 0.2s ease;
+  transition: var(--transition);
 }
 
 .product-card .wishlist-btn:hover {
   transform: scale(1.1);
 }
 
-/* Estado Activo  */
 .product-card .wishlist-btn.active svg {
-  fill: #000;
-  stroke: #000;
+  fill: var(--color-primary);
+  stroke: var(--color-primary);
 }
 
-/* Detalles de Texto */
 .product-card h4 {
   font-family: inherit;
   font-size: 0.95rem;
   font-weight: 500;
   line-height: 1.4;
-  color: #000;
-  margin: 0 0 4px 0;
+  color: var(--color-primary);
+  margin: 0 0 var(--spacing-xs) 0;
   letter-spacing: 0.2px;
 }
 
-/* Variantes secundarias  */
 .product-card .product-meta {
   font-size: 0.85rem;
-  color: #767676;
+  color: var(--text-muted);
   margin-bottom: 6px;
 }
 
 .product-card .price {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #000;
+  color: var(--color-primary);
   margin: 0;
 }
+

@@ -25,19 +25,20 @@ function App() {
       <Navbar />
 
       <Toaster 
-        position="top-right"
-        toastOptions={{
-          style: {
-            background: '#000',
-            color: '#fff',
-            borderRadius: '0px',
-            fontSize: '12px',
-            fontWeight: 'bold',
-            letterSpacing: '1px',
-            fontFamily: 'inherit',
-          },
-        }}
-      />
+  position="top-right"
+  toastOptions={{
+    style: {
+      background: 'var(--color-primary)', 
+      color: 'var(--bg-main)',             
+      borderRadius: 'var(--border-radius-sm)', 
+      fontSize: '12px',
+      fontWeight: 'bold',
+      letterSpacing: '1px',
+      fontFamily: 'var(--font-main)',
+      padding: 'var(--spacing-md)',
+    },
+  }}
+/>
 
       <Routes>
         {/* RUTAS PÚBLICAS */}

@@ -1,16 +1,17 @@
-
+/* ==========================================================================
+   SECURE CHECKOUT
+   ========================================================================== */
 
 .checkout-page-container {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 40px 24px;
+  padding: 40px var(--spacing-lg);
   min-height: 80vh;
-  box-sizing: border-box;
 }
 
 .checkout-page-header {
-  border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-md);
   margin-bottom: 40px;
 }
 
@@ -18,17 +19,16 @@
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: 0.5px;
-  margin: 0 0 4px 0;
-  color: #000;
+  margin: 0 0 var(--spacing-xs) 0;
+  color: var(--color-primary);
 }
 
 .checkout-page-header p {
   font-size: 0.85rem;
-  color: #767676;
+  color: var(--text-muted);
   margin: 0;
 }
 
-/* 2 Columnas */
 .checkout-split-layout {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -42,21 +42,19 @@
 }
 
 .checkout-section-card {
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--color-border);
   padding: 30px;
-  background-color: #fff;
-  box-sizing: border-box;
+  background-color: var(--bg-main);
 }
 
 .checkout-section-card h2 {
   font-size: 0.95rem;
   font-weight: 800;
   letter-spacing: 1px;
-  margin: 0 0 24px 0;
-  color: #000;
+  margin: 0 0 var(--spacing-lg) 0;
+  color: var(--color-primary);
 }
 
-/* Grid de campos del formulario */
 .checkout-fields-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -67,7 +65,7 @@
 .checkout-field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--spacing-sm);
 }
 
 .checkout-field.full-width {
@@ -78,39 +76,32 @@
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.5px;
-  color: #000;
+  color: var(--color-primary);
 }
 
 .checkout-field input {
   height: 44px;
-  border: 1px solid #e5e5e5;
-  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  padding: 0 var(--spacing-sm);
   font-size: 0.85rem;
   font-weight: 600;
   outline: none;
-  background-color: #fff;
-  box-sizing: border-box;
+  background-color: var(--bg-main);
 }
 
 .checkout-field input:focus {
-  border-color: #000;
+  border-color: var(--color-primary);
 }
 
-/* ==========================================================================
-    CREDIT CARD
-   ========================================================================== */
-
-/* Contenedor del área de la tarjeta interactiva */
 .checkout-card-visual-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px 10px;
-  background-color: #fafafa !important; 
-  border: 1px solid #e5e5e5 !important;
-  margin-bottom: 24px;
+  background-color: var(--bg-surface) !important; 
+  border: 1px solid var(--color-border) !important;
+  margin-bottom: var(--spacing-lg);
   width: 100% !important;
-  box-sizing: border-box !important;
 }
 
 .rccs-container {
@@ -127,17 +118,15 @@ div[class*="rccs"] .rccs__card {
 }
 
 div[class*="rccs"] div[class*="rccs__card--"] {
-  background: linear-gradient(135deg, #111111 0%, #1c1c1c 100%) !important;
-  background-color: #111111 !important;
-  color: #ffffff !important;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1c1c1c 100%) !important;
+  background-color: var(--color-primary) !important;
+  color: white !important;
 }
-
 
 div[class*="rccs"] .rccs__card__back {
-  background: linear-gradient(135deg, #0d0d0d 0%, #111111 100%) !important;
+  background: linear-gradient(135deg, #0d0d0d 0%, var(--color-primary) 100%) !important;
   background-color: #0d0d0d !important;
 }
-
 
 div[class*="rccs"] .rccs__chip {
   background: linear-gradient(135deg, #dfba6b 0%, #c29d47 50%, #9e7b28 100%) !important;
@@ -146,9 +135,8 @@ div[class*="rccs"] .rccs__chip {
   border: 1px solid rgba(0, 0, 0, 0.15) !important;
 }
 
-
 div[class*="rccs"] .rccs__number {
-  color: #ffffff !important;
+  color: white !important;
   font-family: 'Courier New', Courier, monospace !important;
   font-size: 1.15rem !important;
   letter-spacing: 2.2px !important;
@@ -157,7 +145,7 @@ div[class*="rccs"] .rccs__number {
 }
 
 div[class*="rccs"] .rccs__name {
-  color: #ffffff !important;
+  color: white !important;
   font-family: 'Montserrat', sans-serif !important;
   font-size: 0.75rem !important;
   letter-spacing: 1.5px !important;
@@ -173,32 +161,26 @@ div[class*="rccs"] .rccs__expiry__valid {
 }
 
 div[class*="rccs"] .rccs__expiry__value {
-  color: #ffffff !important;
+  color: white !important;
   font-family: 'Courier New', Courier, monospace !important;
   font-size: 0.85rem !important;
   font-weight: 700 !important;
 }
 
-/* Banda magnética negra */
 div[class*="rccs"] .rccs__stripe {
-  background-color: #000000 !important;
+  background-color: black !important;
 }
 
-/* Firma trasera */
 div[class*="rccs"] .rccs__signature {
-  background: #ffffff !important;
+  background: white !important;
 }
 
-/* CVC Blanco sobre Negro */
 div[class*="rccs"] .rccs__cvc {
   font-family: 'Courier New', Courier, monospace !important;
   font-weight: 700 !important;
-  color: #000000 !important;
+  color: black !important;
 }
 
-/* ==========================================================================
-    RESUMEN COLUMNA DERECHA 
-   ========================================================================== */
 .checkout-summary-column {
   position: relative;
 }
@@ -206,8 +188,8 @@ div[class*="rccs"] .rccs__cvc {
 .checkout-summary-sticky-card {
   position: sticky;
   top: 100px;
-  background-color: #fafafa;
-  border: 1px solid #f0f0f0;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--color-border);
   padding: 30px;
 }
 
@@ -221,10 +203,10 @@ div[class*="rccs"] .rccs__cvc {
 .checkout-items-mini-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-md);
   max-height: 280px;
   overflow-y: auto;
-  padding-right: 4px;
+  padding-right: var(--spacing-xs);
 }
 
 .checkout-mini-item-row {
@@ -236,7 +218,7 @@ div[class*="rccs"] .rccs__cvc {
 .checkout-mini-img-box {
   width: 50px;
   aspect-ratio: 3 / 4;
-  background-color: #fcfcfc;
+  background-color: var(--bg-surface);
   overflow: hidden;
   display: flex;
   flex-shrink: 0;
@@ -255,25 +237,25 @@ div[class*="rccs"] .rccs__cvc {
 .checkout-mini-info-box h3 {
   font-size: 0.75rem;
   font-weight: 800;
-  margin: 0 0 2px 0;
-  color: #000;
+  margin: 0 0 var(--spacing-xs) 0;
+  color: var(--color-primary);
 }
 
 .checkout-mini-info-box p {
   font-size: 0.7rem;
-  color: #767676;
+  color: var(--text-muted);
   margin: 0;
 }
 
 .checkout-mini-price {
   font-size: 0.8rem;
   font-weight: 700;
-  color: #000;
+  color: var(--color-primary);
 }
 
 .checkout-summary-divider {
   border: 0;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid var(--color-border);
   margin: 16px 0;
 }
 
@@ -291,7 +273,7 @@ div[class*="rccs"] .rccs__cvc {
   justify-content: space-between;
   font-size: 1rem;
   font-weight: 800;
-  color: #000;
+  color: var(--color-primary);
 }
 
 .checkout-submit-box button {
@@ -302,7 +284,6 @@ div[class*="rccs"] .rccs__cvc {
   letter-spacing: 1px;
 }
 
-/* Vista Vacía */
 .checkout-empty-state {
   display: flex;
   flex-direction: column;
@@ -310,11 +291,56 @@ div[class*="rccs"] .rccs__cvc {
   align-items: center;
   min-height: 60vh;
   text-align: center;
-  gap: 16px;
+  gap: var(--spacing-md);
 }
 
+/* ==========================================================================
+   SECURE CHECKOUT RESPONSIVE
+   ========================================================================== */
 
-@media (max-width: 900px) {
+/* Movil */
+@media (max-width: 767px) {
+  .checkout-page-container {
+    padding: 24px var(--spacing-md);
+  }
+
+  .checkout-page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .checkout-split-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .checkout-section-card {
+    padding: 20px;
+  }
+
+  .checkout-fields-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .checkout-field.full-width {
+    grid-column: span 1;
+  }
+
+  .checkout-card-visual-wrapper {
+    padding: 16px 8px;
+  }
+
+  .checkout-summary-sticky-card {
+    padding: 20px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .checkout-page-container {
+    padding: 32px var(--spacing-lg);
+  }
+
   .checkout-split-layout {
     grid-template-columns: 1fr;
     gap: 40px;

@@ -1,13 +1,17 @@
+/* ==========================================================================
+   ADMIN DASHBOARD
+   ========================================================================== */
+
 .admin-container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 24px;
+  padding: 40px var(--spacing-lg);
   min-height: 80vh;
 }
 
 .admin-header {
-  border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-md);
   margin-bottom: 40px;
 }
 
@@ -20,13 +24,13 @@
 
 .admin-header p {
   font-size: 0.85rem;
-  color: #767676;
+  color: var(--text-muted);
   margin: 0;
 }
 
 .admin-card {
-  background-color: #fff;
-  border: 1px solid #e5e5e5;
+  background-color: var(--bg-main);
+  border: 1px solid var(--color-border);
   padding: 40px;
 }
 
@@ -34,12 +38,12 @@
   font-size: 0.95rem;
   font-weight: 800;
   letter-spacing: 1px;
-  margin: 0 0 16px 0;
+  margin: 0 0 var(--spacing-md) 0;
 }
 
 .admin-divider {
   border: 0;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid var(--color-border);
   margin-bottom: 30px;
 }
 
@@ -58,7 +62,7 @@
 .admin-field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--spacing-sm);
 }
 
 .admin-field.full-width {
@@ -74,22 +78,21 @@
 .admin-field input,
 .admin-field select,
 .admin-field textarea {
-  border: 1px solid #e5e5e5;
-  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  padding: 10px var(--spacing-sm);
   font-size: 0.85rem;
   font-weight: 600;
   outline: none;
-  background-color: #fff;
+  background-color: var(--bg-main);
   font-family: inherit;
 }
 
 .admin-field input:focus,
 .admin-field select:focus,
 .admin-field textarea:focus {
-  border-color: #000;
+  border-color: var(--color-primary);
 }
 
-/* Tallas */
 .admin-sizes-row {
   display: flex;
   gap: 10px;
@@ -98,59 +101,55 @@
 .admin-size-btn {
   width: 44px;
   height: 44px;
-  background-color: #fff;
-  border: 1px solid #e5e5e5;
+  background-color: var(--bg-main);
+  border: 1px solid var(--color-border);
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: var(--transition);
 }
 
 .admin-size-btn.active {
-  background-color: #000;
-  color: #fff;
-  border-color: #000;
+  background-color: var(--color-primary);
+  color: var(--bg-main);
+  border-color: var(--color-primary);
 }
-
-/* ==========================================================================
-   📦 ADMIN PRODUCTS LIST (MANAGE CATALOG)
-   ========================================================================== */
 
 .admin-products-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  max-height: 580px; /* Evita que el panel crezca infinito de forma vertical */
+  gap: var(--spacing-md);
+  max-height: 580px;
   overflow-y: auto;
-  padding-right: 8px;
+  padding-right: var(--spacing-sm);
 }
 
-/* Personalización del scrollbar premium */
 .admin-products-list::-webkit-scrollbar {
   width: 4px;
 }
+
 .admin-products-list::-webkit-scrollbar-thumb {
-  background: #000;
+  background: var(--color-primary);
 }
 
 .admin-product-item {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 12px;
-  border: 1px solid #e5e5e5;
-  background-color: #fafafa;
-  transition: border-color 0.2s ease;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--bg-surface);
+  transition: var(--transition);
 }
 
 .admin-product-item:hover {
-  border-color: #000;
+  border-color: var(--color-primary);
 }
 
 .admin-product-thumb {
   width: 60px;
   height: 75px;
   object-fit: cover;
-  background-color: #f5f5f5;
+  background-color: var(--color-border);
 }
 
 .admin-product-details {
@@ -161,14 +160,14 @@
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.5px;
-  color: #000;
-  margin: 0 0 4px 0;
+  color: var(--color-primary);
+  margin: 0 0 var(--spacing-xs) 0;
 }
 
 .admin-product-meta {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #767676;
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -177,14 +176,14 @@
   border: none;
   font-size: 1rem;
   font-weight: 400;
-  color: #a3a3a3;
+  color: var(--text-muted);
   cursor: pointer;
-  padding: 12px;
-  transition: color 0.2s, transform 0.2s;
+  padding: var(--spacing-md);
+  transition: var(--transition);
 }
 
 .admin-delete-btn:hover {
-  color: #e02424; /* Rojo de aviso elegante */
+  color: var(--color-error);
   transform: scale(1.15);
 }
 
@@ -192,7 +191,71 @@
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #767676;
+  color: var(--text-muted);
   text-align: center;
   padding: 40px 0;
+}
+
+/* ==========================================================================
+   ADMIN DASHBOARD RESPONSIVE
+   ========================================================================== */
+
+/* Movil */
+@media (max-width: 767px) {
+  .admin-container {
+    padding: 24px var(--spacing-md);
+  }
+
+  .admin-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .admin-card {
+    padding: 24px;
+  }
+
+  .admin-fields-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .admin-field.full-width {
+    grid-column: span 1;
+  }
+
+  .admin-sizes-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .admin-size-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 0.75rem;
+  }
+
+  .admin-product-item {
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+  }
+
+  .admin-product-thumb {
+    width: 50px;
+    height: 62px;
+  }
+
+  .admin-delete-btn {
+    padding: var(--spacing-sm);
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .admin-container {
+    padding: 32px var(--spacing-lg);
+  }
+
+  .admin-card {
+    padding: 32px;
+  }
 }

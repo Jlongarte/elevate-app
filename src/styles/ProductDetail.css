@@ -1,12 +1,14 @@
+/* ==========================================================================
+   PRODUCT DETAILS PAGE
+   ========================================================================== */
 
 .product-detail-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 40px 24px;
+  padding: 40px var(--spacing-lg);
   min-height: 80vh;
 }
 
-/* Distribución limpia en dos columnas simétricas */
 .detail-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -14,20 +16,17 @@
   align-items: start;
 }
 
-/* ==========================================================================
-    GALERÍA DE IMÁGENES
-   ========================================================================== */
 .detail-gallery {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-md);
   width: 100%;
 }
 
 .product-main-image {
   width: 100%;
   aspect-ratio: 3 / 4;
-  background-color: #fcfcfc;
+  background-color: var(--bg-surface);
   overflow: hidden;
   display: flex;
 }
@@ -43,7 +42,7 @@
   display: flex;
   gap: 10px;
   overflow-x: auto;
-  padding-bottom: 8px;
+  padding-bottom: var(--spacing-sm);
 }
 
 .product-thumbnails-grid button {
@@ -53,7 +52,7 @@
   padding: 0;
   cursor: pointer;
   overflow: hidden;
-  transition: opacity 0.2s, border-color 0.2s;
+  transition: var(--transition);
 }
 
 .product-thumbnails-grid button img {
@@ -62,9 +61,6 @@
   object-fit: cover;
 }
 
-/* ==========================================================================
-    PANEL DE INFORMACIÓN Y COMPRA
-   ========================================================================== */
 .detail-info-panel {
   display: flex;
   flex-direction: column;
@@ -76,9 +72,9 @@
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1.5px;
-  color: #767676;
+  color: var(--text-muted);
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: var(--spacing-sm);
 }
 
 .detail-title {
@@ -86,35 +82,32 @@
   font-weight: 900;
   letter-spacing: -0.5px;
   margin: 0 0 12px 0;
-  color: #000;
+  color: var(--color-primary);
   line-height: 1.1;
 }
 
 .detail-price {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #000;
+  color: var(--color-primary);
   margin: 0 0 20px 0;
 }
 
 .detail-description {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #555;
-  margin: 0 0 24px 0;
+  color: var(--text-main);
+  margin: 0 0 var(--spacing-lg) 0;
 }
 
 .detail-divider {
   border: 0;
-  border-top: 1px solid #e5e5e5;
-  margin: 24px 0;
+  border-top: 1px solid var(--color-border);
+  margin: var(--spacing-lg) 0;
 }
 
-/* ==========================================================================
-    OPCIONES: TALLA Y CANTIDAD
-   ========================================================================== */
 .detail-option-section {
-  margin-bottom: 24px;
+  margin-bottom: var(--spacing-lg);
 }
 
 .option-title {
@@ -122,11 +115,10 @@
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #000;
+  color: var(--color-primary);
   margin-bottom: 12px;
 }
 
-/* Grid de Botones de Talla */
 .sizes-buttons-row {
   display: flex;
   flex-wrap: wrap;
@@ -136,32 +128,31 @@
 .size-square-btn {
   min-width: 48px;
   height: 48px;
-  background-color: #fff;
-  border: 1px solid #e5e5e5;
+  background-color: var(--bg-main);
+  border: 1px solid var(--color-border);
   font-size: 0.8rem;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: var(--transition);
 }
 
 .size-square-btn:hover {
-  border-color: #000;
+  border-color: var(--color-primary);
 }
 
 .size-square-btn.active {
-  background-color: #000;
-  border-color: #000;
-  color: #fff;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--bg-main);
 }
 
-/* Selector de cantidad */
 .detail-qty-selector {
   display: flex;
   align-items: center;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--color-border);
   width: fit-content;
   height: 40px;
 }
@@ -173,43 +164,40 @@
   height: 100%;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: var(--transition);
 }
 
 .detail-qty-selector button:hover {
-  background-color: #f9f9f9;
+  background-color: var(--bg-surface);
 }
 
 .detail-qty-selector span {
   font-size: 0.85rem;
   font-weight: 700;
-  padding: 0 16px;
+  padding: 0 var(--spacing-md);
   min-width: 20px;
   text-align: center;
 }
 
-/* ==========================================================================
-   ADD TO BAG / WISHLIST
-   ========================================================================== */
 .detail-actions-stack {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 16px;
+  margin-top: var(--spacing-md);
   margin-bottom: 35px;
 }
 
 .detail-add-to-bag-btn {
   width: 100%;
   height: 52px;
-  background-color: #000;
-  color: #fff;
-  border: 1px solid #000;
+  background-color: var(--color-primary);
+  color: var(--bg-main);
+  border: 1px solid var(--color-primary);
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: var(--transition);
 }
 
 .detail-add-to-bag-btn:hover:not(:disabled) {
@@ -218,8 +206,8 @@
 }
 
 .detail-add-to-bag-btn:disabled {
-  background-color: #f5f5f5;
-  border-color: #e5e5e5;
+  background-color: var(--bg-surface);
+  border-color: var(--color-border);
   color: #b5b5b5;
   cursor: not-allowed;
 }
@@ -227,27 +215,24 @@
 .detail-wishlist-btn {
   width: 100%;
   height: 52px;
-  background-color: #fff;
-  color: #000;
-  border: 1px solid #e5e5e5;
+  background-color: var(--bg-main);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--transition);
 }
 
 .detail-wishlist-btn:hover {
-  border-color: #000;
+  border-color: var(--color-primary);
 }
 
-/* ==========================================================================
-   Specs 
-   ========================================================================== */
 .detail-specs-box {
-  background-color: #fafafa;
-  border: 1px solid #f0f0f0;
-  padding: 24px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-lg);
 }
 
 .detail-specs-box h3 {
@@ -255,7 +240,7 @@
   font-weight: 800;
   letter-spacing: 1px;
   margin: 0 0 14px 0;
-  color: #000;
+  color: var(--color-primary);
 }
 
 .detail-specs-box ul {
@@ -263,34 +248,84 @@
   padding-left: 18px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--spacing-sm);
 }
 
 .detail-specs-box li {
   font-size: 0.8rem;
-  color: #555;
+  color: var(--text-main);
   line-height: 1.4;
 }
 
-/* Mensajes de Estado */
 .detail-status-msg {
   text-align: center;
   padding: 120px 20px;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #767676;
+  color: var(--text-muted);
 }
 
 .detail-status-msg.error {
-  color: #a30000;
+  color: var(--color-error);
 }
 
+/* ==========================================================================
+   PRODUCT DETAILS RESPONSIVE
+   ========================================================================== */
 
-@media (max-width: 900px) {
+/* Movil */
+@media (max-width: 767px) {
+  .product-detail-container {
+    padding: 24px var(--spacing-md);
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .detail-info-panel {
+    position: static;
+  }
+
+  .detail-title {
+    font-size: 1.6rem;
+  }
+
+  .sizes-buttons-row {
+    gap: 8px;
+  }
+
+  .size-square-btn {
+    min-width: 40px;
+    height: 40px;
+    font-size: 0.75rem;
+  }
+
+  .detail-qty-selector {
+    width: 100%;
+  }
+
+  .detail-qty-selector button {
+    flex: 1;
+  }
+
+  .detail-specs-box {
+    padding: var(--spacing-md);
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .product-detail-container {
+    padding: 32px var(--spacing-lg);
+  }
+
   .detail-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
   .detail-info-panel {
     position: static;
   }

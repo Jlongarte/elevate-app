@@ -1,8 +1,11 @@
+/* ==========================================================================
+   HOME PAGE
+   ========================================================================== */
+
 .home-container {
   width: 100%;
 }
 
-/* Hero Banner */
 .home-hero {
   position: relative;
   width: 100%;
@@ -16,111 +19,6 @@
   margin-bottom: 60px;
 }
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 650px;
-  color: #fff;
-}
-
-.hero-tagline {
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #dcdcdc;
-  display: block;
-  margin-bottom: 12px;
-}
-
-.hero-title {
-  font-size: 3rem;
-  font-weight: 900;
-  letter-spacing: -1px;
-  line-height: 1.1;
-  margin: 0 0 16px 0;
-}
-
-.hero-description {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #f3f3f3;
-  margin-bottom: 30px;
-}
-
-.hero-cta-btn {
-  background-color: #fff;
-  color: #000;
-  border: none;
-  padding: 16px 36px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.hero-cta-btn:hover {
-  background-color: #f0f0f0;
-  transform: translateY(-2px);
-}
-
-/* Distribución de Filas */
-.home-content-layout {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
-  margin-bottom: 100px;
-}
-
-.home-products-section {
-  width: 100%;
-}
-
-.home-section-header {
-  margin-bottom: 30px;
-}
-
-.home-section-header h2 {
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  color: #000;
-  margin: 0 0 6px 0;
-}
-
-.home-section-subtitle {
-  font-size: 0.95rem;
-  color: #666;
-  margin: 0;
-}
-
-.home-status-msg {
-  text-align: center;
-  padding: 60px;
-  font-size: 1.1rem;
-  color: #767676;
-}
-
-.home-container {
-  width: 100%;
-}
-
-/* ==========================================================================
-   🎠 CARROUSEL PRINCIPAL (HERO)
-   ========================================================================== */
 .home-carousel {
   position: relative;
   width: 100%;
@@ -166,14 +64,14 @@
   position: relative;
   z-index: 3;
   max-width: 650px;
-  color: #fff;
+  color: white;
 }
 
 .hero-tagline {
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #e5e5e5;
+  color: var(--color-border);
   display: block;
   margin-bottom: 12px;
 }
@@ -183,7 +81,7 @@
   font-weight: 900;
   letter-spacing: -1px;
   line-height: 1.1;
-  margin: 0 0 16px 0;
+  margin: 0 0 var(--spacing-md) 0;
 }
 
 .hero-description {
@@ -194,18 +92,20 @@
 }
 
 .hero-cta-btn {
-  background-color: #fff;
-  color: #000;
+  background-color: var(--bg-main);
+  color: var(--color-primary);
   border: none;
   padding: 16px 36px;
   font-size: 0.9rem;
   font-weight: 700;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: var(--transition);
 }
 
 .hero-cta-btn:hover {
   background-color: #f0f0f0;
+  transform: translateY(-2px);
 }
 
 .carousel-dots {
@@ -226,17 +126,15 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: background 0.2s;
+  transition: var(--transition);
 }
 
 .carousel-dots .dot.active {
-  background: #fff;
+  background: var(--bg-main);
   width: 24px;
   border-radius: 4px;
 }
 
-
-/* Layout General */
 .home-content-layout {
   max-width: 1440px;
   margin: 0 auto;
@@ -247,19 +145,168 @@
   margin-bottom: 100px;
 }
 
+.home-products-section {
+  width: 100%;
+}
+
+.home-section-header {
+  margin-bottom: 30px;
+}
+
+.home-section-header h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--color-primary);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.home-section-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
 .home-status-msg {
   text-align: center;
   padding: 60px;
-  color: #767676;
+  font-size: 1.1rem;
+  color: var(--text-muted);
 }
 
-/* Responsivo */
-@media (max-width: 800px) {
-  .home-promo-banner, .home-promo-banner.inverted {
-    grid-template-columns: 1fr;
-    direction: ltr;
+
+.home-products-section {
+  width: 100%;
+  margin-bottom: var(--spacing-xl);
+}
+
+.home-section-header {
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-sm);
+}
+
+.home-products-section .products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .home-content-layout {
+    padding: 0 var(--spacing-md);
+    gap: 40px;
   }
-  .banner-text-side {
-    padding: 30px 20px;
+
+  .home-hero {
+    height: 60vh;
+    padding: 0 var(--spacing-md);
+  }
+
+  .home-carousel {
+    height: 60vh;
+    margin-bottom: 40px;
+  }
+
+  .carousel-slide {
+    display: none;
+  }
+
+  .carousel-slide:first-child {
+    display: flex;
+    position: relative;
+    opacity: 1 !important;
+    visibility: visible !important;
+    height: 100%;
+    padding: 0 var(--spacing-lg);
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .carousel-dots {
+    display: none !important;
+  }
+
+  .home-products-section .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Movil */
+@media (max-width: 767px) {
+  .home-content-layout {
+    padding: 0 var(--spacing-md);
+    gap: 32px;
+    margin-bottom: 60px;
+  }
+
+  .home-hero {
+    height: 50vh;
+    padding: 0 var(--spacing-md);
+    margin-bottom: 40px;
+  }
+
+  .home-carousel {
+    height: 50vh;
+    margin-bottom: 40px;
+  }
+
+  .carousel-slide {
+    display: none;
+  }
+
+  .carousel-slide:first-child {
+    display: flex;
+    position: relative;
+    opacity: 1 !important;
+    visibility: visible !important;
+    height: 100%;
+    padding: 0 var(--spacing-md);
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-tagline {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 24px;
+  }
+
+  .hero-cta-btn {
+    padding: 12px 28px;
+    font-size: 0.8rem;
+  }
+
+  .carousel-dots {
+    display: none !important;
+  }
+
+  .home-section-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .home-section-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .home-products-section .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
   }
 }

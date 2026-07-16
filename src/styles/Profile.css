@@ -1,16 +1,17 @@
-
+/* ==========================================================================
+   USER PROFILE & CUSTOMER ORDERS
+   ========================================================================== */
 
 .profile-page-container {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 40px 24px;
+  padding: 40px var(--spacing-lg);
   min-height: 80vh;
-  box-sizing: border-box;
 }
 
 .profile-page-header {
-  border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-sm);
   margin-bottom: 40px;
 }
 
@@ -18,17 +19,16 @@
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: 0.5px;
-  margin: 0 0 4px 0;
-  color: #000;
+  margin: 0 0 var(--spacing-xs) 0;
+  color: var(--color-primary);
 }
 
 .profile-page-header p {
   font-size: 0.85rem;
-  color: #767676;
+  color: var(--text-muted);
   margin: 0;
 }
 
-/* Layout Split */
 .profile-layout {
   display: grid;
   grid-template-columns: 1fr 2.5fr;
@@ -36,16 +36,15 @@
   align-items: start;
 }
 
-/* Sidebar de la Cuenta */
 .profile-sidebar {
   position: sticky;
   top: 100px;
 }
 
 .profile-info-card {
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--color-border);
   padding: 40px 30px;
-  background-color: #fff;
+  background-color: var(--bg-main);
   text-align: center;
 }
 
@@ -53,8 +52,8 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--color-primary);
+  color: var(--bg-main);
   font-size: 1.8rem;
   font-weight: 800;
   display: flex;
@@ -66,19 +65,19 @@
 .profile-info-card h2 {
   font-size: 1.1rem;
   font-weight: 800;
-  margin: 0 0 4px 0;
+  margin: 0 0 var(--spacing-xs) 0;
   letter-spacing: 0.5px;
 }
 
 .profile-email {
   font-size: 0.8rem;
-  color: #767676;
-  margin: 0 0 24px 0;
+  color: var(--text-muted);
+  margin: 0 0 var(--spacing-lg) 0;
 }
 
 .profile-divider {
   border: 0;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid var(--color-border);
   margin: 20px 0;
 }
 
@@ -93,14 +92,14 @@
   font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 1px;
-  color: #767676;
+  color: var(--text-muted);
 }
 
 .badge-role {
   font-size: 0.75rem;
   font-weight: 800;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--color-primary);
+  color: var(--bg-main);
   padding: 6px 12px;
   letter-spacing: 0.5px;
   text-align: center;
@@ -112,24 +111,22 @@
   text-decoration: none;
 }
 
-/* Sección de Pedidos */
 .profile-orders-section h2 {
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: 1px;
-  margin: 0 0 24px 0;
+  margin: 0 0 var(--spacing-lg) 0;
 }
 
 .orders-list-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--spacing-lg);
 }
 
-/* Tarjeta de Pedido Individual */
 .order-item-card {
-  border: 1px solid #e5e5e5;
-  background-color: #fff;
+  border: 1px solid var(--color-border);
+  background-color: var(--bg-main);
   padding: 24px;
 }
 
@@ -137,7 +134,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  background-color: #fafafa;
+  background-color: var(--bg-surface);
   padding: 16px;
   border: 1px solid #f0f0f0;
   margin-bottom: 20px;
@@ -147,15 +144,15 @@
   display: block;
   font-size: 0.6rem;
   font-weight: 800;
-  color: #767676;
+  color: var(--text-muted);
   letter-spacing: 1px;
-  margin-bottom: 4px;
+  margin-bottom: var(--spacing-xs);
 }
 
 .order-meta-value {
   font-size: 0.8rem;
   font-weight: 700;
-  color: #000;
+  color: var(--color-primary);
 }
 
 .font-mono {
@@ -163,11 +160,10 @@
 }
 
 .highlight-price {
-  color: #000;
+  color: var(--color-primary);
   font-weight: 800;
 }
 
-/* Badges de Estado */
 .order-statuses-row {
   display: flex;
   gap: 12px;
@@ -182,7 +178,7 @@
   font-weight: 800;
   letter-spacing: 0.5px;
   padding: 6px 12px;
-  border-radius: 4px;
+  border-radius: var(--border-radius-sm);
 }
 
 .status-dot {
@@ -191,54 +187,56 @@
   border-radius: 50%;
 }
 
-/* Colores de estados */
 .status-badge.paid {
   background-color: #e6f7ed;
   color: #008a3b;
 }
+
 .status-badge.paid .status-dot {
   background-color: #008a3b;
 }
 
 .status-badge.pending {
   background-color: #fff1f0;
-  color: #cf1322;
+  color: var(--color-error);
 }
+
 .status-badge.pending .status-dot {
-  background-color: #cf1322;
+  background-color: var(--color-error);
 }
 
 .status-badge.delivered {
   background-color: #e6f7ed;
   color: #008a3b;
 }
+
 .status-badge.delivered .status-dot {
   background-color: #008a3b;
 }
 
 .status-badge.processing {
-  background-color: #f5f5f5;
+  background-color: var(--bg-surface);
   color: #555555;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--color-border);
 }
+
 .status-badge.processing .status-dot {
   background-color: #555555;
 }
 
-/* Productos de la orden */
 .order-items-grid {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-md);
   margin-bottom: 20px;
 }
 
 .order-item-row {
   display: flex;
   align-items: center;
-  gap: 16px;
-  border-bottom: 1px solid #f5f5f5;
-  padding-bottom: 16px;
+  gap: var(--spacing-md);
+  border-bottom: 1px solid var(--bg-surface);
+  padding-bottom: var(--spacing-md);
 }
 
 .order-item-row:last-child {
@@ -249,7 +247,7 @@
 .order-item-img-box {
   width: 50px;
   aspect-ratio: 3 / 4;
-  background-color: #fafafa;
+  background-color: var(--bg-surface);
   overflow: hidden;
 }
 
@@ -266,12 +264,12 @@
 .order-item-details h3 {
   font-size: 0.75rem;
   font-weight: 800;
-  margin: 0 0 4px 0;
+  margin: 0 0 var(--spacing-xs) 0;
 }
 
 .order-item-quantity {
   font-size: 0.7rem;
-  color: #767676;
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -280,16 +278,14 @@
   font-weight: 700;
 }
 
-/* Dirección de envío de la orden */
 .order-shipping-summary {
   font-size: 0.75rem;
-  color: #555;
-  border-top: 1px solid #e5e5e5;
-  padding-top: 16px;
+  color: var(--text-main);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-md);
   line-height: 1.4;
 }
 
-/* Cargas, Errores y Vacíos */
 .profile-orders-loading,
 .profile-orders-error,
 .profile-orders-empty {
@@ -297,18 +293,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--color-border);
   padding: 60px 20px;
   text-align: center;
-  gap: 16px;
-  background-color: #fff;
+  gap: var(--spacing-md);
+  background-color: var(--bg-main);
 }
 
 .orders-spinner {
   width: 30px;
   height: 30px;
-  border: 2px solid #e5e5e5;
-  border-top-color: #000;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--color-primary);
   border-radius: 50%;
   animation: orders-spin 0.8s linear infinite;
 }
@@ -317,9 +313,61 @@
   to { transform: rotate(360deg); }
 }
 
-@media (max-width: 900px) {
+/* ==========================================================================
+   USER PROFILE RESPONSIVE
+   ========================================================================== */
+
+/* Movil */
+@media (max-width: 767px) {
+  .profile-page-container {
+    padding: 24px var(--spacing-md);
+  }
+
+  .profile-page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .profile-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .profile-sidebar {
+    position: static;
+  }
+
+  .profile-info-card {
+    padding: 24px var(--spacing-md);
+  }
+
+  .order-item-card {
+    padding: var(--spacing-md);
+  }
+
+  .order-card-header {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+
+  .order-statuses-row {
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile-page-container {
+    padding: 32px var(--spacing-lg);
+  }
+
   .profile-layout {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .profile-sidebar {
+    position: static;
   }
 }
