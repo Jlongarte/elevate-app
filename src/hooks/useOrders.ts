@@ -1,18 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useAppSelector } from '../app/store';
 
+
 export interface Order {
   _id: string;
   createdAt: string;
   totalPrice: number;
   isPaid: boolean;
-  paidAt?: string;
+  isDelivered: boolean;
   orderItems: Array<{
     name: string;
-    qty: number;
+    quantity: number; 
     price: number;
-    image: string;
+    product?: { images: string[] }; 
   }>;
+  shippingAddress: { address: string; city: string; postalCode: string; country: string };
 }
 
 export const useOrders = () => {
@@ -24,12 +26,13 @@ export const useOrders = () => {
     const fetchMyOrders = async () => {
       if (!token) return;
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/orders/myorders`
-       , {
+        const apiUrl = import.meta.env.VITE_API_URL || 'https://elevate-backend-bqdb.onrender.com';
+        const response = await fetch(`${apiUrl}/api/orders/myorders`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
+        
         if (response.ok) {
           const data = await response.json();
           setOrders(data);

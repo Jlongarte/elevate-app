@@ -2,17 +2,18 @@ import React from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { useProfile } from '../hooks/useProfile';
 import Button from '../components/Common/Button';
+import { Skeleton } from 'boneyard-js/react';
 import '../styles/Profile.css';
 
 const Profile: React.FC = () => {
   const { user, orders, isLoading, error } = useProfile();
 
-  // Si no hay sesión, protegemos la ruta y redirigimos al login
   if (!user) {
     return <Navigate to="/login?redirect=/profile" replace />;
   }
 
   return (
+    <Skeleton name="profile-orders-bone" loading={isLoading}>
     <div className="profile-page-container">
       <header className="profile-page-header">
         <h1>MY PROFILE</h1>
@@ -20,18 +21,17 @@ const Profile: React.FC = () => {
       </header>
 
       <div className="profile-layout">
-        
-        {/* COLUMNA IZQUIERDA: INFORMACIÓN DE LA CUENTA */}
         <aside className="profile-sidebar">
           <div className="profile-info-card">
             <div className="profile-avatar">
               {user.name.charAt(0).toUpperCase()}
             </div>
+
             <h2>{user.name.toUpperCase()}</h2>
             <p className="profile-email">{user.email}</p>
-            
+
             <hr className="profile-divider" />
-            
+
             <div className="profile-meta-item">
               <span className="meta-label">ACCOUNT TYPE:</span>
               <span className="meta-value badge-role">
@@ -41,7 +41,10 @@ const Profile: React.FC = () => {
 
             {user.isAdmin && (
               <Link to="/admin" className="admin-dashboard-btn-link">
-                <Button variant="outline" style={{ width: '100%', marginTop: '20px' }}>
+                <Button
+                  variant="outline"
+                  style={{ width: '100%', marginTop: '20px' }}
+                >
                   GO TO ADMIN PANEL
                 </Button>
               </Link>
@@ -49,7 +52,6 @@ const Profile: React.FC = () => {
           </div>
         </aside>
 
-        {/* COLUMNA DERECHA: HISTORIAL DE PEDIDOS */}
         <main className="profile-orders-section">
           <h2>ORDER HISTORY ({orders.length})</h2>
 
@@ -65,69 +67,125 @@ const Profile: React.FC = () => {
           ) : orders.length === 0 ? (
             <div className="profile-orders-empty">
               <p>YOU HAVEN'T PLACED ANY ORDERS YET.</p>
+
               <Link to="/catalog">
-                <Button variant="primary">START SHOPPING</Button>
+                <Button variant="primary">
+                  START SHOPPING
+                </Button>
               </Link>
             </div>
           ) : (
             <div className="orders-list-wrapper">
               {orders.map((order) => {
-                const orderDate = new Date(order.createdAt).toLocaleDateString('es-ES', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                });
+                const orderDate = new Date(order.createdAt).toLocaleDateString(
+                  'es-ES',
+                  {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  }
+                );
 
                 return (
                   <div key={order._id} className="order-item-card">
-                    
-                    {/* Encabezado de la Tarjeta del Pedido */}
+
                     <div className="order-card-header">
                       <div>
                         <span className="order-meta-title">ORDER ID</span>
-                        <span className="order-meta-value font-mono">#{order._id.slice(-8).toUpperCase()}</span>
+                        <span className="order-meta-value font-mono">
+                          #{order._id.slice(-8).toUpperCase()}
+                        </span>
                       </div>
+
                       <div>
                         <span className="order-meta-title">DATE PLACED</span>
-                        <span className="order-meta-value">{orderDate}</span>
+                        <span className="order-meta-value">
+                          {orderDate}
+                        </span>
                       </div>
+
                       <div>
-                        <span className="order-meta-title">TOTAL AMOUNT</span>
-                        <span className="order-meta-value highlight-price">€ {order.totalPrice.toFixed(2)}</span>
+                        <span className="order-meta-title">
+                          TOTAL AMOUNT
+                        </span>
+                        <span className="order-meta-value highlight-price">
+                          € {order.totalPrice.toFixed(2)}
+                        </span>
                       </div>
                     </div>
 
-                    {/* Estados de Pago y Envío */}
                     <div className="order-statuses-row">
-                      <div className={`status-badge ${order.isPaid ? 'paid' : 'pending'}`}>
+                      <div
+                        className={`status-badge ${
+                          order.isPaid ? 'paid' : 'pending'
+                        }`}
+                      >
                         <span className="status-dot"></span>
-                        {order.isPaid ? 'PAID TRANSACTION' : 'PAYMENT PENDING'}
+
+                        {order.isPaid
+                          ? 'PAID TRANSACTION'
+                          : 'PAYMENT PENDING'}
                       </div>
-                      <div className={`status-badge ${order.isDelivered ? 'delivered' : 'processing'}`}>
+
+                      <div
+                        className={`status-badge ${
+                          order.isDelivered
+                            ? 'delivered'
+                            : 'processing'
+                        }`}
+                      >
                         <span className="status-dot"></span>
-                        {order.isDelivered ? 'DELIVERED' : 'PROCESSING SHIPMENT'}
+
+                        {order.isDelivered
+                          ? 'DELIVERED'
+                          : 'PROCESSING SHIPMENT'}
                       </div>
                     </div>
 
-                    {/* Desglose de Productos Comprados */}
                     <div className="order-items-grid">
-                      {order.orderItems.map((item, idx) => (
-                        <div key={idx} className="order-item-row">
+                      {order.orderItems.map((item: any, idx: number) => (
+                        <div
+                          key={idx}
+                          className="order-item-row"
+                        >
                           <div className="order-item-img-box">
-                            <img src={item.image} alt={item.name} />
+                            <img
+                              src={
+                                item.product?.images?.[0] ||
+                                'https://placehold.co/150x150'
+                              }
+                              alt={item.name}
+                              onError={(e) => {
+                                (
+                                  e.target as HTMLImageElement
+                                ).src =
+                                  'https://placehold.co/150x150';
+                              }}
+                            />
                           </div>
+
                           <div className="order-item-details">
                             <h3>{item.name.toUpperCase()}</h3>
-                            <p className="order-item-quantity">QTY: {item.qty}</p>
+
+                            <p className="order-item-quantity">
+                              QTY: {item.quantity}
+                            </p>
                           </div>
-                          <span className="order-item-price">€ {(item.price * item.qty).toFixed(2)}</span>
+
+                          <span className="order-item-price">
+                            €
+                            {(item.price * item.quantity).toFixed(2)}
+                          </span>
                         </div>
                       ))}
                     </div>
 
-                    {/* Dirección de Envío */}
                     <div className="order-shipping-summary">
-                      <strong>SHIPPING ADDRESS:</strong> {order.shippingAddress.address}, {order.shippingAddress.city}, {order.shippingAddress.postalCode}, {order.shippingAddress.country.toUpperCase()}
+                      <strong>SHIPPING ADDRESS:</strong>{' '}
+                      {order.shippingAddress.street},{' '}
+                      {order.shippingAddress.province},{' '}
+                      {order.shippingAddress.zipCode},{' '}
+                      {order.shippingAddress.country.toUpperCase()}
                     </div>
 
                   </div>
@@ -136,9 +194,9 @@ const Profile: React.FC = () => {
             </div>
           )}
         </main>
-
       </div>
     </div>
+    </Skeleton>
   );
 };
 

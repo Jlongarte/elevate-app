@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
     <footer className="elevate-footer">
       <div className="footer-container">
         
-        {/* COLUMNA 1: LOGO & BRAND MANIFESTO */}
+        {/* LOGO  */}
         <div className="footer-brand-section">
           <h3 className="footer-logo">ELEVATE<span>.</span></h3>
           <p className="footer-manifesto">
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* COLUMNA 2: HELP & SUPPORT */}
+        {/* HELP & SUPPORT */}
         <div className="footer-links-column">
           <h4>HELP & SUPPORT</h4>
           <ul>
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* COLUMNA 3: PAGES & COLLECTIONS */}
+        {/* PAGES & COLLECTIONS */}
         <div className="footer-links-column">
           <h4>COLLECTIONS</h4>
           <ul>
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* COLUMNA 4: NEWSLETTER */}
+        {/* NEWSLETTER */}
         <div className="footer-newsletter-section">
           <h4>JOIN THE INNER CIRCLE</h4>
           <p>Sign up to receive exclusive access to capsule collection drops and community updates.</p>

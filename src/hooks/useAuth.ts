@@ -38,7 +38,7 @@ const handleLogin = async (email: string, password: string, redirectPath: string
       role: data.user?.role || data.role
     };
 
-    // Guardamos síncronamente en localStorage de inmediato
+    // Guardamos síncronamente en localStorage 
     localStorage.setItem('elevate_user', JSON.stringify(loggedUser));
     localStorage.setItem('elevate_token', sessionToken);
 

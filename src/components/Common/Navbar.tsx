@@ -134,13 +134,23 @@ const Navbar: React.FC = () => {
               {isUserDropdownOpen && (
                 <div className="navbar-dropdown-menu">
                   {isAdmin ? (
-                    <Link 
-                      to="/admin" 
-                      className="dropdown-item admin-dropdown-item" 
-                      onClick={() => setIsUserDropdownOpen(false)}
-                    >
-                      Panel Admin
-                    </Link>
+                    <>
+                      {/* ENLACES DE ADMIN */}
+                      <Link 
+                        to="/admin" 
+                        className="dropdown-item admin-dropdown-item" 
+                        onClick={() => setIsUserDropdownOpen(false)}
+                      >
+                        Dashboard
+                      </Link>
+                      <Link 
+                        to="/admin/orders" 
+                        className="dropdown-item admin-dropdown-item" 
+                        onClick={() => setIsUserDropdownOpen(false)}
+                      >
+                        Manage Orders
+                      </Link>
+                    </>
                   ) : (
                     <Link 
                       to="/profile" 
@@ -163,7 +173,6 @@ const Navbar: React.FC = () => {
           )}
 
         </div>
-
       </div>
     </nav>
   );

@@ -1,0 +1,142 @@
+/* ==========================================================================
+   ADMIN ORDERS PANEL
+   ========================================================================== */
+
+.admin-orders-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px var(--spacing-lg);
+  min-height: 80vh;
+}
+
+.admin-orders-header {
+  margin-bottom: 40px;
+}
+
+.admin-orders-header h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin: 0 0 var(--spacing-xs) 0;
+  color: var(--color-primary);
+}
+
+.admin-orders-header p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Tabla Responsive */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto; 
+}
+
+.admin-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background-color: var(--bg-main);
+}
+
+.admin-orders-table th {
+  padding: 16px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.admin-orders-table td {
+  padding: 16px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-primary);
+  vertical-align: middle;
+}
+
+.admin-orders-table tr:hover td {
+  background-color: rgba(0, 0, 0, 0.02); 
+}
+
+/* Tipografía de utilidad */
+.fw-bold {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.admin-status-msg {
+  text-align: center;
+  padding: 80px;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.admin-status-msg.error {
+  color: var(--color-error);
+}
+
+.no-orders-msg {
+  text-align: center;
+  padding: 60px !important;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* --- Badges (Píldoras de estado) --- */
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.success {
+  background-color: #10B981; 
+  color: #fff;
+}
+
+.status-badge.pending {
+  background-color: #EF4444; 
+  color: #fff;
+}
+
+/* --- Botón de Detalles --- */
+.admin-action-btn {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.admin-action-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--bg-main);
+}
+
+/* Movil */
+@media (max-width: 767px) {
+  .admin-orders-container {
+    padding: 24px var(--spacing-md);
+  }
+  
+  .admin-orders-table th,
+  .admin-orders-table td {
+    padding: 12px 8px;
+    font-size: 0.8rem;
+  }
+}

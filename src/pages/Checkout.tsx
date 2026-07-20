@@ -45,7 +45,7 @@ const Checkout: React.FC = () => {
     setFocusedField('');
   };
 
-  // Regla de negocio: si no hay sesión, obligamos a iniciar sesión
+  // si no hay sesión, obligamos a iniciar sesión
   if (!user) {
     return <Navigate to="/login?redirect=/checkout" replace />;
   }

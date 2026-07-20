@@ -110,6 +110,34 @@
   margin-bottom: var(--spacing-lg);
 }
 
+.detail-size-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.detail-size-header-row .option-title {
+  margin-bottom: 0;
+}
+
+.detail-advisor-trigger-btn {
+  background: none;
+  border: none;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+  cursor: pointer;
+  padding-bottom: 2px;
+  transition: var(--transition);
+}
+
+.detail-advisor-trigger-btn:hover {
+  opacity: 0.7;
+}
+
 .option-title {
   display: block;
   font-size: 0.75rem;
@@ -270,6 +298,169 @@
 }
 
 /* ==========================================================================
+   AI SIZE ADVISOR INTERACTIVE MODAL STYLES
+   ========================================================================== */
+
+.advisor-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.advisor-modal {
+  background-color: var(--bg-main);
+  border: 1px solid var(--color-border);
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  position: relative;
+  box-shadow: var(--box-shadow);
+}
+
+.advisor-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--color-primary);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.advisor-modal h2 {
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+  margin: 0 0 8px 0;
+  color: var(--color-primary);
+}
+
+.advisor-intro {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0 0 28px 0;
+}
+
+.advisor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.advisor-fields-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.advisor-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.advisor-field label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--color-primary);
+}
+
+.advisor-field input,
+.advisor-field select {
+  height: 44px;
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  padding: 0 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  outline: none;
+  font-family: inherit;
+  color: var(--color-primary);
+}
+
+.advisor-field input:focus,
+.advisor-field select:focus {
+  border-color: var(--color-primary);
+}
+
+.advisor-submit-btn {
+  margin-top: 10px;
+  height: 48px;
+  background-color: var(--color-primary);
+  color: var(--bg-main);
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.advisor-submit-btn:hover:not(:disabled) {
+  background-color: #333;
+}
+
+.advisor-submit-btn:disabled {
+  background-color: var(--bg-surface);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.advisor-error-msg {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-error);
+  text-align: center;
+}
+
+.advisor-result-box {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.advisor-output-text {
+  font-family: inherit;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  white-space: pre-line;
+  background-color: var(--bg-surface);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  margin: 0;
+}
+
+.advisor-reset-btn {
+  height: 44px;
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.advisor-reset-btn:hover {
+  border-color: var(--color-primary);
+}
+
+/* ==========================================================================
    PRODUCT DETAILS RESPONSIVE
    ========================================================================== */
 
@@ -312,6 +503,11 @@
 
   .detail-specs-box {
     padding: var(--spacing-md);
+  }
+
+  .advisor-modal {
+    padding: 30px 20px;
+    max-width: 90%;
   }
 }
 

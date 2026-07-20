@@ -39,7 +39,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, adminOnly = f
     return <Navigate to={`/login?redirect=${encodeURIComponent(location.pathname)}`} replace />;
   }
 
-  // Comprobación del Rol (convertido a minúsculas)
+  // Comprobación del Rol 
   const isAdmin = currentUser.role?.toLowerCase() === 'admin';
 
   // Si la ruta requiere privilegios de administrador y no lo es, lo mandamos al inicio

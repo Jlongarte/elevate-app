@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminOrders from './pages/AdminOrders'; 
 import Navbar from './components/Common/Navbar';
 import Footer from './components/Common/Footer';
 import { useAppSelector } from './app/store';
@@ -25,20 +26,20 @@ function App() {
       <Navbar />
 
       <Toaster 
-  position="top-right"
-  toastOptions={{
-    style: {
-      background: 'var(--color-primary)', 
-      color: 'var(--bg-main)',             
-      borderRadius: 'var(--border-radius-sm)', 
-      fontSize: '12px',
-      fontWeight: 'bold',
-      letterSpacing: '1px',
-      fontFamily: 'var(--font-main)',
-      padding: 'var(--spacing-md)',
-    },
-  }}
-/>
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: 'var(--color-primary)', 
+            color: 'var(--bg-main)',             
+            borderRadius: 'var(--border-radius-sm)', 
+            fontSize: '12px',
+            fontWeight: 'bold',
+            letterSpacing: '1px',
+            fontFamily: 'var(--font-main)',
+            padding: 'var(--spacing-md)',
+          },
+        }}
+      />
 
       <Routes>
         {/* RUTAS PÚBLICAS */}
@@ -77,6 +78,15 @@ function App() {
           element={
             <ProtectedRoute adminOnly={true}>
               <AdminDashboard />
+            </ProtectedRoute>
+          } 
+        />
+        {/* 2. NUEVA RUTA DE ORDERS */}
+        <Route 
+          path="/admin/orders" 
+          element={
+            <ProtectedRoute adminOnly={true}>
+              <AdminOrders />
             </ProtectedRoute>
           } 
         />

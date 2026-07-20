@@ -12,7 +12,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-container">
-      {/* Carrusel superior con las 3 fotos */}
+      {/* Carrusel con 3 fotos */}
       <HomeCarousel />
 
       {isLoading && <div className="home-status-msg">Loading collection...</div>}
@@ -21,14 +21,14 @@ const Home: React.FC = () => {
       {!isLoading && !error && (
         <div className="home-content-layout">
           
-          {/* Fila 1: Most Wanted */}
+          {/*  Most Wanted */}
           <HomeProductRow 
             title="MOST WANTED" 
             subtitle="The absolute community favorites."
             products={mostWanted} 
           />
 
-          {/* Banner Intermedio de Ancho Completo Centrado */}
+          
           <HomeBanner 
             title="SUMMER EDIT"
             ctaText="Discover now"
@@ -36,7 +36,7 @@ const Home: React.FC = () => {
             linkTo="/catalog"
           />
 
-          {/* Fila 2: New Releases */}
+          {/* New Releases */}
           <HomeProductRow 
             title="NEW RELEASES" 
             subtitle="Fresh drops from our engineering lab."
