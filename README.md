@@ -2,6 +2,7 @@
 
 A modern, high-performance, and feature-rich e-commerce web application built with a modern React stack. This frontend handles sophisticated user interactions, state management, role-based access control with dual dashboards, and AI-powered utilities.
 
+Project deployed  https://elevate-app-psi.vercel.app/
 ---
 
 ## 🚀 Tech Stack & Core Technologies
