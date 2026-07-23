@@ -12,6 +12,8 @@ const Profile: React.FC = () => {
     return <Navigate to="/login?redirect=/profile" replace />;
   }
 
+  const isAdmin = user.role?.toLowerCase() === 'admin';
+
   return (
     <Skeleton name="profile-orders-bone" loading={isLoading}>
     <div className="profile-page-container">
@@ -35,14 +37,14 @@ const Profile: React.FC = () => {
             <div className="profile-meta-item">
               <span className="meta-label">ACCOUNT TYPE:</span>
               <span className="meta-value badge-role">
-                {user.isAdmin ? 'ADMINISTRATOR' : 'PREMIUM CUSTOMER'}
+                {isAdmin ? 'ADMINISTRATOR' : 'PREMIUM CUSTOMER'}
               </span>
             </div>
 
-            {user.isAdmin && (
+            {isAdmin && (
               <Link to="/admin" className="admin-dashboard-btn-link">
                 <Button
-                  variant="outline"
+                  variant="secondary"
                   style={{ width: '100%', marginTop: '20px' }}
                 >
                   GO TO ADMIN PANEL
@@ -182,9 +184,9 @@ const Profile: React.FC = () => {
 
                     <div className="order-shipping-summary">
                       <strong>SHIPPING ADDRESS:</strong>{' '}
-                      {order.shippingAddress.street},{' '}
-                      {order.shippingAddress.province},{' '}
-                      {order.shippingAddress.zipCode},{' '}
+                      {order.shippingAddress.address},{' '}
+                      {order.shippingAddress.city},{' '}
+                      {order.shippingAddress.postalCode},{' '}
                       {order.shippingAddress.country.toUpperCase()}
                     </div>
 
