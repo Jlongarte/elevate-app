@@ -29,12 +29,10 @@ const ProductDetail: React.FC = () => {
     <div className="product-detail-container">
       <div className="detail-grid">
         
-        {/* Galería de Imágenes limpia y optimizada */}
         <div className="detail-gallery">
           <ProductGallery images={product.images || []} name={product.name} />
         </div>
 
-        {/* Información y Compra */}
         <div className="detail-info-panel">
           <span className="detail-category">{product.category}</span>
           <h1 className="detail-title">{product.name}</h1>
@@ -43,7 +41,6 @@ const ProductDetail: React.FC = () => {
 
           <hr className="detail-divider" />
 
-          {/* Selector de Tallas */}
           <div className="detail-option-section">
             <div className="detail-size-header-row">
               <span className="option-title">SELECT SIZE:</span>
@@ -68,7 +65,6 @@ const ProductDetail: React.FC = () => {
             </div>
           </div>
 
-          {/* Selector de Cantidad */}
           <div className="detail-option-section">
             <span className="option-title">QUANTITY:</span>
             <div className="detail-qty-selector">
@@ -78,7 +74,6 @@ const ProductDetail: React.FC = () => {
             </div>
           </div>
 
-          {/* Botones de Acción */}
           <div className="detail-actions-stack">
             <button 
               className="detail-add-to-bag-btn"
@@ -96,7 +91,6 @@ const ProductDetail: React.FC = () => {
             </button>
           </div>
 
-          {/* Especificaciones técnicas */}
           {product.specs && product.specs.length > 0 && (
             <div className="detail-specs-box">
               <h3>PRODUCT FEATURES</h3>
@@ -111,29 +105,26 @@ const ProductDetail: React.FC = () => {
         </div>
       </div>
 
-      {/* Sección de Productos Relacionados al final de la página */}
-      {product.relatedProducts && product.relatedProducts.length > 0 && (
-        <section className="related-products-section" style={{ marginTop: '80px', padding: '30px 0', borderTop: '1px solid #eaeaea' }}>
-          <h2 style={{ fontSize: '1.4rem', marginBottom: '24px', letterSpacing: '1px' }}>YOU MAY ALSO LIKE</h2>
+      {(product as any).relatedProducts && (product as any).relatedProducts.length > 0 && (
+        <section className="related-products-section">
+          <h2>YOU MAY ALSO LIKE</h2>
           
-          <div className="related-products-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '20px' }}>
-            {product.relatedProducts.map((related: any) => (
+          <div className="related-products-grid">
+            {(product as any).relatedProducts.map((related: any) => (
               <Link 
                 key={related._id} 
                 to={`/product/${related._id}`} 
                 className="related-product-card"
-                style={{ textDecoration: 'none', color: 'inherit' }}
               >
-                <div className="related-img-container" style={{ width: '100%', height: '280px', overflow: 'hidden', backgroundColor: '#f4f4f4' }}>
+                <div className="related-img-container">
                   <img 
                     src={related.images?.[0] || 'https://placehold.co/300x400'} 
                     alt={related.name}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                 </div>
-                <div className="related-info" style={{ marginTop: '12px' }}>
-                  <h3 style={{ fontSize: '0.95rem', fontWeight: '600', marginBottom: '4px' }}>{related.name}</h3>
-                  <span style={{ fontSize: '0.9rem', color: '#666' }}>€ {related.price?.toFixed(2)}</span>
+                <div className="related-info">
+                  <h3>{related.name}</h3>
+                  <span>€ {related.price?.toFixed(2)}</span>
                 </div>
               </Link>
             ))}
@@ -141,7 +132,6 @@ const ProductDetail: React.FC = () => {
         </section>
       )}
 
-      {/* Modal del Recomendador de Tallas Inteligente */}
       <SizeAdvisorModal 
         isOpen={isAdvisorOpen} 
         onClose={() => setIsAdvisorOpen(false)} 

@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import { useCatalog } from '../hooks/useCatalog';
 import ProductCard from '../components/Product/ProductCard';
 import { CatalogFilters } from '../components/Catalog/CatalogFilters';
-import { toast } from 'react-hot-toast';
 import { Skeleton } from 'boneyard-js/react';
 import '../styles/Catalog.css';
 
@@ -24,7 +23,6 @@ const Catalog: React.FC<CatalogProps> = ({ category }) => {
   const [selectedColor, setSelectedColor] = useState<string>('all');
   const [selectedLength, setSelectedLength] = useState<string>('all');
 
-  // Extraemos dinámicamente colores iterando sobre los arrays "colors" 
   const availableColors = useMemo(() => {
     const colorSet = new Set<string>();
     products.forEach((p: any) => {
@@ -35,7 +33,6 @@ const Catalog: React.FC<CatalogProps> = ({ category }) => {
     return Array.from(colorSet);
   }, [products]);
 
-  // Extraemos dinámicamente longitudes iterando sobre los arrays "lengths" 
   const availableLengths = useMemo(() => {
     const lengthSet = new Set<string>();
     products.forEach((p: any) => {
@@ -46,7 +43,6 @@ const Catalog: React.FC<CatalogProps> = ({ category }) => {
     return Array.from(lengthSet);
   }, [products]);
 
-  // Filtramos asegurándonos de comprobar si el color/longitud está incluido en el array del producto
   const displayedProducts = useMemo(() => {
     return products.filter((product: any) => {
       const matchColor = 
@@ -99,7 +95,6 @@ const Catalog: React.FC<CatalogProps> = ({ category }) => {
                     setSearchQuery('');
                   }}
                   className="clear-filters-btn"
-                  style={{ marginTop: '1rem', padding: '0.5rem 1rem', cursor: 'pointer' }}
                 >
                   CLEAR FILTERS
                 </button>

@@ -45,7 +45,8 @@ export const useCheckout = () => {
     setIsSubmitting(true);
 
 
-    const orderItems = cartItems.map((item) => ({
+
+    const orderItems = cartItems.map((item: any) => ({
       product: item.product._id,
       name: item.product.name,
       quantity: item.quantity,

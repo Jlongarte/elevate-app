@@ -149,9 +149,11 @@ const Admin: React.FC = () => {
 
             </div>
 
-            <Button variant="primary" type="submit" disabled={isSubmitting} style={{ marginTop: '10px' }}>
-              {isSubmitting ? 'PUBLISHING... ' : 'PUBLISH TO CATALOG'}
-            </Button>
+            <div style={{ marginTop: '24px' }}>
+              <Button variant="primary" type="submit" disabled={isSubmitting}>
+                GUARDAR CAMBIOS
+              </Button>
+          </div>
           </form>
         </div>
 
