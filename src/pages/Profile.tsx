@@ -42,14 +42,15 @@ const Profile: React.FC = () => {
             </div>
 
             {isAdmin && (
-              <Link to="/admin" className="admin-dashboard-btn-link">
-                <Button
-                  variant="secondary"
-                  style={{ width: '100%', marginTop: '20px' }}
-                >
-                  GO TO ADMIN PANEL
-                </Button>
-              </Link>
+              <div style={{ width: '100%', marginTop: '20px' }}>
+                <Link to="/admin" className="admin-dashboard-btn-link" style={{ textDecoration: 'none' }}>
+                  <Button
+                    variant="secondary"
+                  >
+                    GO TO ADMIN PANEL
+                  </Button>
+                </Link>
+              </div>
             )}
           </div>
         </aside>
