@@ -13,11 +13,10 @@ const config: Config = {
       { 
         tsconfig: '<rootDir>/tsconfig.app.json',
         useESM: true,
-        diagnostics: { ignoreCodes: [151001, 1295, 1287] },
+        diagnostics: { ignoreCodes: [151001, 1295, 1287, 1343] }, 
       },
     ],
   },
- 
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 };
 

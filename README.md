@@ -1,73 +1,123 @@
-# React + TypeScript + Vite
+# Elevate App E-commerce Frontend Architecture - E-Commerce Client & Admin Suite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance, and feature-rich e-commerce web application built with a modern React stack. This frontend handles sophisticated user interactions, state management, role-based access control with dual dashboards, and AI-powered utilities.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Tech Stack & Core Technologies
 
-## React Compiler
+- **Framework:** React 18+ powered by **Vite** for blazing-fast HMR and optimized production builds.
+- **Language:** TypeScript for strict type safety and robust component contracts.
+- **State Management:** Redux Toolkit (RTK) for predictable global state handling (authentication, cart, wishlist, and asynchronous actions).
+- **Routing:** React Router v6 supporting nested routes, dynamic parameters, and protected layouts.
+- **Styling:** Custom modular CSS architecture with design tokens and responsive layouts.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🌟 Key Features & Architecture
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 1. Dual Dashboard System (Role-Based Access Control)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+#### Customer Experience
+- Tailored browsing experience.
+- Interactive product galleries.
+- Dynamic size selector.
+- Wishlist management.
+- Secure checkout workflow.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+#### Admin Dashboard Suite
+- Dedicated administrative views (`/admin`, `/admin/orders`).
+- Protected routes with strict role-based permissions.
+- Automatic redirection from customer transactional flows.
+- Efficient management of products, orders, and store operations.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+### 2. AI-Powered Size Advisor
+
+Integrated **AI Size Advisor Modal** (`SizeAdvisorModal.tsx`) directly into the product detail page, providing intelligent size recommendations based on product context.
+
+---
+
+### 3. Dynamic Product Detail & Related Catalog
+
+- Optimized multi-image product gallery.
+- Rich product information display.
+- Backend-powered relational product mapping.
+- Dynamic **"You May Also Like"** recommendation grid.
+
+---
+
+### 4. Robust Order Tracking & Profile Management
+
+The **Profile** (`Profile.tsx`) section provides:
+
+- Account information.
+- User roles and privileges.
+- Shipping addresses.
+- Complete order history.
+- Status indicators:
+  - ✅ Paid / Pending
+  - 📦 Processing / Delivered
+
+---
+
+## 📦 Installed Libraries & Tooling
+
+✅ Routing & Navigation: react-router-dom
+
+✅ State & Data Layer: @reduxjs/toolkit, react-redux
+
+✅ Payment UI & Credit Cards: react-credit-cards-2 (Interactive, responsive credit card visualization component reflecting real-time inputs during checkout).
+
+✅ Notifications: react-hot-toast for streamlined, custom-styled system feedback toasts.
+
+✅ UI Performance & Loading: boneyard-js for semantic skeleton-screen loaders mapped directly to component structures.
+
+---
+
+## 📂 Project Structure Overview
+
+```text
+src/
+├── app/
+├── assets/
+├── components/
+│   ├── common/
+│   ├── layout/
+│   ├── product/
+│   └── ui/
+├── features/
+│   ├── auth/
+│   ├── cart/
+│   ├── wishlist/
+│   ├── orders/
+│   └── products/
+├── hooks/
+├── layouts/
+├── pages/
+│   ├── admin/
+│   ├── customer/
+│   └── auth/
+├── routes/
+├── services/
+├── store/
+├── types/
+├── utils/
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ✨ Highlights
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- ⚡ React 18 + Vite performance
+- 🔒 Role-Based Access Control (RBAC)
+- 🤖 AI-powered Size Advisor
+- 🛒 Full e-commerce customer experience
+- 📦 Complete order management
+- ❤️ Wishlist & shopping cart
+- 🔥 Redux Toolkit architecture
+- 📱 Fully responsive UI
+- 🎯 TypeScript-first development
+- 🚀 Optimized production build
