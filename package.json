@@ -2,6 +2,8 @@
   "name": "elevate",
   "private": true,
   "version": "0.0.0",
+  "description": "Plataforma e-commerce de alto rendimiento desarrollada con React, TypeScript y Vite, conectada a un backend REST con arquitectura escalable.",
+  "author": "Janire Gonzalez https://www.linkedin.com/in/janire-gonzalez-garayoa/",
   "type": "module",
   "scripts": {
     "dev": "vite",
