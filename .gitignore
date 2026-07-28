@@ -17,6 +17,7 @@ pnpm-debug.log*
 # Archivos del sistema
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Directorios de cobertura
 coverage/
