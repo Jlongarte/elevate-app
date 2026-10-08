@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
           <form className="navbar-search-form" onSubmit={handleSearchSubmit}>
             <input 
               type="text" 
-              placeholder="What are you searching for?..." 
+              placeholder="What are you searching for?" 
               autoFocus
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
